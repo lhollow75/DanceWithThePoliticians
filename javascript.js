@@ -6,7 +6,6 @@ var b = document.getElementsByTagName('body')[0];
 		
 
 $(function() {
-	bouton.addEventListener('click', afficheCouleur);
 	b.addEventListener('keydown',  keyd);
 });
 
