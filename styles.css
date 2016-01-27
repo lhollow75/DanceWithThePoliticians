@@ -1,0 +1,106 @@
+body {
+	margin:0;
+	height: 450px;
+	background:#2c2c2c;	
+}
+#text {
+	margin-top:-150px;
+	margin-left:-120px;
+	width:120px;
+	top:50%; left:50%;
+	text-transform:uppercase;
+	color:#BE3E1B;
+	font-size:100%;
+	font-weight:bold;
+	text-shadow:-1px 1px 3px #DBC558, -1px 1px 1px #FFF38F;
+	text-align:center;
+}
+div {
+	position:absolute;
+	-webkit-transform-style:preserve-3d;
+}
+#page {
+	height:100%;
+	width:100%;
+	
+	-moz-perspective:700px;
+	background-image: -moz-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
+}
+#container {
+	height:300px;
+	width:300px;
+	top:50%; left:50%;
+	margin-top:-150px;
+	margin-left:-150px;
+	-webkit-box-reflect: below  -7px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(10%, transparent), to(rgba(255,255,255,0.2)));
+}
+
+#tete{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background-color: white;
+	overflow: hidden;
+
+	position: absolute;
+	top:60px;
+	left:100px;
+}
+
+#corps{
+	width: 5px;
+	height: 150px;
+	background-color: white;
+	position: absolute;
+	top:160px;
+	left:145px;
+}
+
+
+#bras_droit{
+	width: 100px;
+	height: 5px;
+	background-color: white;
+	position: absolute;
+	top:170px;
+	left:145px;
+}
+#bras_gauche{
+	width: 100px;
+	height: 5px;
+	background-color: white;
+	position: absolute;
+	top:170px;
+	left:50px;
+}
+
+#jambe_droite{
+	width: 100px;
+	height: 5px;
+	background-color: white;
+	position: absolute;
+	top:340px;
+	left:60px;
+	-webkit-transform:rotate(-45deg);
+}
+
+#jambe_gauche{
+	width: 100px;
+	height: 5px;
+	background-color: white;
+	position: absolute;
+	top:340px;
+	left:135px;
+	-webkit-transform:rotate(45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
