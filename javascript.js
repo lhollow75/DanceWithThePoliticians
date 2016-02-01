@@ -12,16 +12,31 @@ $(function() {
 function keyd(ev) {
 	console.log(ev.keyCode);
 	
-	if(ev.keyCode === 37){
-		console.log("Gauche");
-		// bras_g.className= "move2"; 
-	} else if(ev.keyCode === 39) {
-		console.log("Droite");
-		bras_d.className= "bras_droit_move2"; 
-		setTimeout(retourNormal, 350);
+	switch (ev.keyCode) {
+		case 37:
+			console.log("Gauche");
+			bras_g.className= "bras_move4"; 
+			setTimeout(retourNormal_bras_gauche, 350);
+			break;
+		case 38:
+			console.log("Droite");
+			bras_d.className= "bras_move1"; 
+			bras_g.className= "bras_move6"; 
+			setTimeout(retourNormal_bras_droit, 350);
+			setTimeout(retourNormal_bras_gauche, 350);
+			break;
+		case 39:
+			console.log("Droite");
+			bras_d.className= "bras_move3"; 
+			setTimeout(retourNormal_bras_droit, 350);
+			break;
 	}
 }
 
-function retourNormal(){
-	bras_d.className= "bras_droit_move1";
+function retourNormal_bras_droit(){
+	bras_d.className= "bras_move2";
+}
+
+function retourNormal_bras_gauche(){
+	bras_g.className= "bras_move5";
 }
