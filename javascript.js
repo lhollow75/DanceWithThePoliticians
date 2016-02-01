@@ -3,32 +3,88 @@ var bras_g = document.getElementById('bras_gauche');
 var jambe_d = document.getElementById('jambe_droite');
 var jambe_g = document.getElementById('jambe_gauche');
 var b = document.getElementsByTagName('body')[0];
+var position_bras_droit = 2;
+var position_bras_gauche = 5;
 		
 
 $(function() {
-	b.addEventListener('keydown',  keyd);
+	b.addEventListener('keyup',  keyd);
 });
 
 function keyd(ev) {
 	console.log(ev.keyCode);
 	
 	switch (ev.keyCode) {
-		case 37:
-			console.log("Gauche");
-			bras_g.className= "bras_move4"; 
-			setTimeout(retourNormal_bras_gauche, 350);
+		case 8: // return
+			if (position_bras_droit == 1) {
+				position_bras_droit = 6;
+			} else if  (position_bras_gauche == 1) {
+				position_bras_gauche = 6;
+			} else {
+				position_bras_droit --;
+				position_bras_gauche --;
+			}
+			bras_g.className= "bras_move"+position_bras_gauche; 
+			bras_d.className= "bras_move"+position_bras_droit;
 			break;
-		case 38:
-			console.log("Droite");
+		case 13: // Entrée
+			if (position_bras_droit == 6) {
+				position_bras_droit = 1;
+			} else if  (position_bras_gauche == 6) {
+				position_bras_gauche = 1;
+			} else {
+				position_bras_droit ++;
+				position_bras_gauche ++;
+			}
+			bras_g.className= "bras_move"+position_bras_gauche; 
+			bras_d.className= "bras_move"+position_bras_droit;
+			break;
+		case 32: // Espace
+			break;
+		case 37: // Gauche
+			console.log("A Gauche");
+			bras_g.className= "bras_move6"; 
+			bras_d.className= "bras_move5";
+			setTimeout(retourNormal_bras_gauche, 350);
+			setTimeout(retourNormal_bras_droit, 350);
+			break;
+		case 38: // Haut
+			console.log("En haut");
 			bras_d.className= "bras_move1"; 
 			bras_g.className= "bras_move6"; 
 			setTimeout(retourNormal_bras_droit, 350);
 			setTimeout(retourNormal_bras_gauche, 350);
 			break;
-		case 39:
-			console.log("Droite");
-			bras_d.className= "bras_move3"; 
+		case 39: // Droite
+			console.log("A Droite");
+			bras_d.className= "bras_move1"; 
+			bras_g.className= "bras_move2"; 
 			setTimeout(retourNormal_bras_droit, 350);
+			setTimeout(retourNormal_bras_gauche, 350);
+			break;
+		case 40: // Bas
+			console.log("En bas");
+			bras_d.className= "bras_move3";
+			bras_g.className= "bras_move4";
+			setTimeout(retourNormal_bras_droit, 350);
+			setTimeout(retourNormal_bras_gauche, 350); 	
+		case 65: // A
+			console.log("A");
+			break;
+		case 69: // E
+			console.log("E");
+			break;
+		case 82: // R
+			console.log("R");
+			break;
+		case 84: // T
+			console.log("T");
+			break;
+		case 89: // Y
+			console.log("Y");
+			break;
+		case 90: // Z
+			console.log("Z");
 			break;
 	}
 }
