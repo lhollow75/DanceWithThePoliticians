@@ -17,11 +17,11 @@ function keyd(ev) {
 		// bras_g.className= "move2"; 
 	} else if(ev.keyCode === 39) {
 		console.log("Droite");
-		bras_d.className= "move2"; 
+		bras_d.className= "bras_droit_move2"; 
 		setTimeout(retourNormal, 350);
 	}
 }
 
 function retourNormal(){
-	bras_d.className= "move1";
+	bras_d.className= "bras_droit_move1";
 }
