@@ -3,19 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	
+	<link rel="stylesheet" type="text/css" href="caroussel.css">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script ></script>
 </head>
 <body>
 
-	<div id="tete" class="tete_move1"></div>
-	<div id="corps"></div>
-	<div id="bras_droit" class="bras_move2"></div>
-	<div id="bras_gauche" class="bras_move5"></div>
-	<div id="jambe_droite" class="jambe_move3"></div>
-	<div id="jambe_gauche" class="jambe_move4"></div>
-	
+	<div id="interface">
+		<div id="caroussel">
+			<ul>
+				<li><a href="#" id="character1" class="character1"><img src="img/Character_1.jpg" alt="Loup 1"></a></li>
+				<li><a href="#" id="character2" class="character2"><img src="img/Character_2.jpg" alt="Loup 2"></a></li>
+				<li><a href="#" id="character3" class="character3"><img src="img/Character_3.jpg" alt="Loup 3"></a></li>
+			</ul>
+
+			<button class="prev" id="prev">Next character</button>
+			<button class="next" id="next">Previous character</button>
+		</div>
+
+		<div id="play">
+			<a href="#" id="play">Jouez !</a>
+		</div>
+	</div>
+
+	<br />
+
+	<div id="game">
+
+		<div id="tete" class="tete_move1"></div>
+		<div id="corps"></div>
+		<div id="bras_droit" class="bras_move2"></div>
+		<div id="bras_gauche" class="bras_move5"></div>
+		<div id="jambe_droite" class="jambe_move3"></div>
+		<div id="jambe_gauche" class="jambe_move4"></div>
+
+	</div>
+		
 	<script type="text/javascript" src="javascript.js"></script>
 
 </body>

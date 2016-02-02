@@ -9,6 +9,42 @@ var position_bras_gauche = 5;
 
 $(function() {
 	b.addEventListener('keyup',  keyd);
+
+	// Liste des personnages présent sur le caroussel
+	$("#prev").click(function(){
+			$("#caroussel ul li:first").before(
+				$("#caroussel ul li:last"));
+			$("#caroussel ul").css({left:-300});
+			$("#caroussel ul").animate({left:0}, 1000);
+	});
+
+	$("#next").click(function(){
+		$("#caroussel ul").animate({left:-300},1000, function (){
+			$("#caroussel ul li:last").after(
+				$("#caroussel ul li:first"));
+				$(this).css({left:0});
+		});
+	});
+
+	// Changer la class du personnage pour changer son visage
+	$('#character1').click(function(){
+		document.getElementById('tete').className='teteHitler';
+	});
+
+	$('#character2').click(function(){
+		document.getElementById('tete').className='teteStaline';
+	});
+
+	$('#character3').click(function(){
+		document.getElementById('tete').className='teteObama';
+	});
+
+	// Lancer le jeu
+	$('#play').click(function(){
+		$('#interface').css('display', 'none');
+		$('#game').css('display', 'block');
+	});
+
 });
 
 function keyd(ev) {

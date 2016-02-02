@@ -46,7 +46,7 @@ div {
 	top:60px;
 	left:100px;
 
-	background-image: url('../img/hitler.jpg');
+	background-image: url('img/hitler.jpg');
 }
 
 .teteStaline{
@@ -60,7 +60,7 @@ div {
 	top:60px;
 	left:100px;
 
-	background-image: url('../img/staline.jpg');
+	background-image: url('img/staline.jpg');
 }
 
 .teteObama{
@@ -74,7 +74,7 @@ div {
 	top:60px;
 	left:100px;
 
-	background-image: url('../img/head_obama.png');
+	background-image: url('img/head_obama.png');
 }
 
 #corps{

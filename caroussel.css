@@ -1,0 +1,43 @@
+/* Interface character */
+#caroussel {
+			width:300px;
+			height:600px;
+			margin:auto;
+			overflow:hidden;
+			position:relative;
+}
+
+	#caroussel ul {
+		position:absolute;
+		left:0;
+		list-style-type:none;
+		margin:0px;
+		padding:0px;
+		width:9999px;
+	}
+
+	#caroussel ul li{
+		padding:0px;
+		float:left;
+	}
+
+.prev{
+	left: 50%;
+	position: absolute;
+}
+
+.next{
+	position: absolute;
+}
+
+.prev, .next{
+	border-radius:3px;
+	background-color: red;
+	padding:5px;
+}
+
+
+/* Game */
+#game {
+	display: none;
+}
