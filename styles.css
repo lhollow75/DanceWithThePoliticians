@@ -1,7 +1,7 @@
 body {
 	margin:0;
 	height: 450px;
-	background:#2c2c2c;	
+	background:#2c2c2c;
 }
 #text {
 	margin-top:-150px;
@@ -22,7 +22,7 @@ div {
 #page {
 	height:100%;
 	width:100%;
-	
+
 	-moz-perspective:700px;
 	background-image: -moz-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
 }
@@ -41,67 +41,44 @@ div {
 	border-radius: 50px;
 	
 	overflow: hidden;
-
+	
 	position: absolute;
 	top:60px;
 	left:100px;
-
-	background-image: url('img/hitler.jpg');
+	background-image: url('./img/hitler.jpg');
 }
-
 .teteStaline{
 	width: 100px;
 	height: 100px;
 	border-radius: 50px;
-	
 	overflow: hidden;
 
 	position: absolute;
 	top:60px;
 	left:100px;
 
-	background-image: url('img/staline.jpg');
+	background-image: url('./img/staline.jpg');
 }
-
 .teteObama{
 	width: 100px;
 	height: 100px;
 	border-radius: 50px;
-	
+
 	overflow: hidden;
 
 	position: absolute;
 	top:60px;
 	left:100px;
 
-	background-image: url('img/head_obama.png');
+	background-image: url('./img/head_obama.png');
 }
-
 #corps{
 	width: 11px;
 	height: 150px;
 	background-color: white;
 	position: absolute;
 	top:159px;
-	left:142px;
-}
-
-
-#bras_droit{
-	width: 100px;
-	height: 5px;
-	background-color: white;
-	position: absolute;
-	top:170px;
-	left:145px;
-}
-#bras_gauche{
-	width: 100px;
-	height: 5px;
-	background-color: white;
-	position: absolute;
-	top:170px;
-	left:50px;
+	left:144px;
 }
 
 #jambe_gauche{
@@ -128,118 +105,31 @@ div {
 
 /* ========= Mouvements ========= */
 
-/*en haut à droite*/
-.bras_move1{
-	top:138px !important;
-	left:131px !important;
+.bras{
+    width: 5px;
+    height: 100px;
 
-	/* Rotation */
-	-webkit-transform:rotate(-45deg) !important;
+    background-color: white;
+    position: absolute;
 
-	/* Deplacement */
     transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
+    transform-origin:50% 0%;
+    top:170px !important;
+    left:147px !important;
 }
 
-/*au milieu à droite*/
-.bras_move2{
-	top:170px !important;
-	left:145px !important;
+.bras_gauche {transform:rotate(5deg)}
+.bras_droit {transform:rotate(-5deg)}
 
-	/* Rotation */
-	-webkit-transform:rotate(0deg) !important;
 
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
+.bras_move_-135 { transform:rotate(-135deg) !important}
+.bras_move_-90 { transform:rotate(-90deg) !important}
+.bras_move_-45 { transform:rotate(-45deg) !important}
+.bras_move_45 { transform:rotate(45deg) !important}
+.bras_move_90 { transform:rotate(90deg) !important}
+.bras_move_135 { transform:rotate(135deg) !important}
 
-/*en bas à droite*/
-.bras_move3{
-	top:202px !important;
-	left:131px !important;
 
-	/* Rotation */
-	-webkit-transform:rotate(45deg) !important;
-    
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*en bas à gauche*/
-.bras_move4{
-	top:202px !important;
-	left:63px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(135deg) !important;
-    
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*au milieu à gauche*/
-.bras_move5{
-	top:170px !important;
-	left:50px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(180deg) !important;
-    
-	/* Transition */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*en haut à gauche*/
-.bras_move6{
-	top:135px !important;
-	left:62px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(225deg) !important;
-    
-	/* Transition */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*en haut à droite*/
-.bras_move7{
-	top:139px !important;
-	left:136px !important;
-
-	/* Rotation */
-	transform:rotate(320deg) !important;
-    
-	/* Transition */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-
-}
 
 
 

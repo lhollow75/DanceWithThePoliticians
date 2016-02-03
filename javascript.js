@@ -47,61 +47,70 @@ $(function() {
 
 });
 
+function bougeBras(elt, angle){
+
+    elt.classList.add('bras_move_' + angle);
+    setTimeout(function(){
+        elt.classList.remove('bras_move_' + angle);
+    },350);
+}
+
 function keyd(ev) {
 	console.log(ev.keyCode);
 	
 	switch (ev.keyCode) {
 		case 8: // return
-			if (position_bras_droit == 1) {
-				position_bras_droit = 6;
-			} else if  (position_bras_gauche == 1) {
-				position_bras_gauche = 6;
+			if (position_bras_droit == -135) {
+				position_bras_droit = 135;
+			} else if  (position_bras_gauche == -135) {
+				position_bras_gauche = 135;
 			} else {
-				position_bras_droit --;
-				position_bras_gauche --;
+				position_bras_droit = position_bras_droit - 45;
+				position_bras_gauche = position_bras_gauche - 45;
 			}
-			bras_g.className= "bras_move"+position_bras_gauche; 
-			bras_d.className= "bras_move"+position_bras_droit;
+			bougeBras(bras_g, position_bras_gauche);
+            bougeBras(bras_d, position_bras_droit);
 			break;
 		case 13: // Entrée
-			if (position_bras_droit == 6) {
-				position_bras_droit = 1;
-			} else if  (position_bras_gauche == 6) {
-				position_bras_gauche = 1;
+			if (position_bras_droit == 135) {
+				position_bras_droit = -135;
+			} else if  (position_bras_gauche == 135) {
+				position_bras_gauche = -135;
 			} else {
-				position_bras_droit ++;
-				position_bras_gauche ++;
+				position_bras_droit = position_bras_droit + 45;
+				position_bras_gauche = position_bras_gauche + 45;
 			}
-			bras_g.className= "bras_move"+position_bras_gauche; 
-			bras_d.className= "bras_move"+position_bras_droit;
+	
+			bougeBras(bras_g, position_bras_gauche);
+            bougeBras(bras_d, position_bras_droit);
 			break;
 		case 32: // Espace
 			break;
 		case 37: // Gauche
 			console.log("A Gauche");
-			bras_g.className= "bras_move6"; 
-			bras_d.className= "bras_move5";
+			bougeBras(bras_g, 135);
+            bougeBras(bras_d, 90);
 			setTimeout(retourNormal_bras_gauche, 350);
 			setTimeout(retourNormal_bras_droit, 350);
 			break;
 		case 38: // Haut
 			console.log("En haut");
-			bras_d.className= "bras_move1"; 
-			bras_g.className= "bras_move6"; 
+			bougeBras(bras_g, 135);
+            bougeBras(bras_d, -135);
 			setTimeout(retourNormal_bras_droit, 350);
 			setTimeout(retourNormal_bras_gauche, 350);
 			break;
 		case 39: // Droite
 			console.log("A Droite");
-			bras_d.className= "bras_move1"; 
-			bras_g.className= "bras_move2"; 
+			bougeBras(bras_g, -90);
+            bougeBras(bras_d, -135);
 			setTimeout(retourNormal_bras_droit, 350);
 			setTimeout(retourNormal_bras_gauche, 350);
 			break;
 		case 40: // Bas
 			console.log("En bas");
-			bras_d.className= "bras_move3";
-			bras_g.className= "bras_move4";
+			bougeBras(bras_g, 45);
+            bougeBras(bras_d, -45);
 			setTimeout(retourNormal_bras_droit, 350);
 			setTimeout(retourNormal_bras_gauche, 350); 	
 		case 65: // A
@@ -126,9 +135,9 @@ function keyd(ev) {
 }
 
 function retourNormal_bras_droit(){
-	bras_d.className= "bras_move2";
+	bougeBras(bras_d, -90);
 }
 
 function retourNormal_bras_gauche(){
-	bras_g.className= "bras_move5";
+	bougeBras(bras_g, 90);
 }
