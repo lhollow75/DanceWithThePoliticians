@@ -130,9 +130,9 @@ div {
 .bras_move_135 { transform:rotate(135deg) !important}
 .bras_move_180 { transform:rotate(180deg) !important}
 .bras_move_-180 { transform:rotate(-180deg) !important}
-.bras_move_360 { transform:rotate(360deg) !important; transition: all 600ms linear !important}
-.bras_move_-360 { transform:rotate(-360deg) !important; transition: all 600ms linear !important}
-.bras_move_0 { transform:rotate(0deg) !important; transition: all 600ms linear !important}
+.bras_move_360 { transform:rotate(360deg) !important; transition: all 700ms linear !important}
+.bras_move_-360 { transform:rotate(-360deg) !important; transition: all 700ms linear !important}
+.bras_move_0 { transform:rotate(0deg) !important; transition: all 700ms linear !important}
 
 
 

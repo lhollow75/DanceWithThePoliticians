@@ -3,7 +3,11 @@ var bras_g = document.getElementById('bras_gauche');
 var jambe_d = document.getElementById('jambe_droite');
 var jambe_g = document.getElementById('jambe_gauche');
 var b = document.getElementsByTagName('body')[0];
+
+// création d'un tableau qui rassemble les mouvements dispo dans le css (pour la fonction random notamment)
 var position_bras = [180, -135, -90, -45, 45, 90, 135, -180, -360, 360, 0];
+
+// initialisation de la position des bras (pour la touche entrée et suppr)
 var position_bras_droit = position_bras[3];
 var position_bras_gauche = position_bras[4];
 		
@@ -51,10 +55,13 @@ $(function() {
 
 });
 
+// Permet de bouger les bras selon son côté et l'angle de destination
+// Retour à la normal par la suite
 function bougeBras(elt, angle){
 
     elt.classList.add('bras_move_' + angle);
 	
+	// Selon l'angle de destination, le temps de retour n'est pas le même, ainsi que le traitement du retour
 	if (angle>-360 && angle<360) {
 		setTimeout(function(){
 			elt.classList.remove('bras_move_' + angle);
@@ -63,11 +70,12 @@ function bougeBras(elt, angle){
 		setTimeout(function(){
 			elt.classList.remove('bras_move_' + angle);
 			bougeBras(elt, 0);
-		},650);
+		},750);
 	}
     
 }
 
+// Activation des mouvements en fonction de la touche appuyée
 function keyd(ev) {
 	console.log(ev.keyCode);
 	
@@ -128,20 +136,22 @@ function keyd(ev) {
 		case 69: // E
 			console.log("E");
 			break;
-		case 82: // R
-			console.log("R");
+		case 82: // R -> Random positiion
+			console.log("Random");
 			bougeBras(bras_g, position_bras[Math.floor(Math.random()*position_bras.length)]);
 			bougeBras(bras_d, position_bras[Math.floor(Math.random()*position_bras.length)]);
 			break;
 		case 84: // T
-			console.log("T");
+			console.log("Tout en haut");
 			bougeBras(bras_g, position_bras[0]);
 			bougeBras(bras_d, position_bras[7]);
 			break;
 		case 89: // Y
-			console.log("Y");
+			console.log("Tour complet");
 			bougeBras(bras_g, position_bras[8]);
-			bougeBras(bras_d, position_bras[9]);
+			setTimeout(function(){
+				bougeBras(bras_d, position_bras[9]);
+			},50);
 			break;
 		case 90: // Z
 			console.log("Z");
