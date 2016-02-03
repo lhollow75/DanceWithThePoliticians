@@ -3,12 +3,16 @@ var bras_g = document.getElementById('bras_gauche');
 var jambe_d = document.getElementById('jambe_droite');
 var jambe_g = document.getElementById('jambe_gauche');
 var b = document.getElementsByTagName('body')[0];
-var position_bras_droit = 2;
-var position_bras_gauche = 5;
+var position_bras = [180, -135, -90, -45, 45, 90, 135, -180, -360, 360, 0];
+var position_bras_droit = position_bras[3];
+var position_bras_gauche = position_bras[4];
 		
 
 $(function() {
+	$('#interface').css('display', 'none');
+	$('#game').css('display', 'block');
 	b.addEventListener('keyup',  keyd);
+	
 
 	// Liste des personnages présent sur le caroussel
 	$("#prev").click(function(){
@@ -50,9 +54,18 @@ $(function() {
 function bougeBras(elt, angle){
 
     elt.classList.add('bras_move_' + angle);
-    setTimeout(function(){
-        elt.classList.remove('bras_move_' + angle);
-    },350);
+	
+	if (angle>-360 && angle<360) {
+		setTimeout(function(){
+			elt.classList.remove('bras_move_' + angle);
+		},350);
+	} else {
+		setTimeout(function(){
+			elt.classList.remove('bras_move_' + angle);
+			bougeBras(elt, 0);
+		},650);
+	}
+    
 }
 
 function keyd(ev) {
@@ -88,31 +101,27 @@ function keyd(ev) {
 			break;
 		case 37: // Gauche
 			console.log("A Gauche");
-			bougeBras(bras_g, 135);
-            bougeBras(bras_d, 90);
-			setTimeout(retourNormal_bras_gauche, 350);
-			setTimeout(retourNormal_bras_droit, 350);
+			bougeBras(bras_g, position_bras[6]);
+            bougeBras(bras_d, position_bras[5]);
+
 			break;
 		case 38: // Haut
 			console.log("En haut");
-			bougeBras(bras_g, 135);
-            bougeBras(bras_d, -135);
-			setTimeout(retourNormal_bras_droit, 350);
-			setTimeout(retourNormal_bras_gauche, 350);
+			bougeBras(bras_g, position_bras[6]);
+            bougeBras(bras_d, position_bras[1]);
+
 			break;
 		case 39: // Droite
 			console.log("A Droite");
-			bougeBras(bras_g, -90);
-            bougeBras(bras_d, -135);
-			setTimeout(retourNormal_bras_droit, 350);
-			setTimeout(retourNormal_bras_gauche, 350);
+			bougeBras(bras_g, position_bras[2]);
+            bougeBras(bras_d, position_bras[1]);
+
 			break;
 		case 40: // Bas
 			console.log("En bas");
-			bougeBras(bras_g, 45);
-            bougeBras(bras_d, -45);
-			setTimeout(retourNormal_bras_droit, 350);
-			setTimeout(retourNormal_bras_gauche, 350); 	
+			bougeBras(bras_g, position_bras[4]);
+            bougeBras(bras_d, position_bras[3]);
+
 		case 65: // A
 			console.log("A");
 			break;
@@ -121,23 +130,21 @@ function keyd(ev) {
 			break;
 		case 82: // R
 			console.log("R");
+			bougeBras(bras_g, position_bras[Math.floor(Math.random()*position_bras.length)]);
+			bougeBras(bras_d, position_bras[Math.floor(Math.random()*position_bras.length)]);
 			break;
 		case 84: // T
 			console.log("T");
+			bougeBras(bras_g, position_bras[0]);
+			bougeBras(bras_d, position_bras[7]);
 			break;
 		case 89: // Y
 			console.log("Y");
+			bougeBras(bras_g, position_bras[8]);
+			bougeBras(bras_d, position_bras[9]);
 			break;
 		case 90: // Z
 			console.log("Z");
 			break;
 	}
-}
-
-function retourNormal_bras_droit(){
-	bougeBras(bras_d, -90);
-}
-
-function retourNormal_bras_gauche(){
-	bougeBras(bras_g, 90);
 }
