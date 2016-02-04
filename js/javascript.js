@@ -13,44 +13,80 @@ var position_bras_gauche = position_bras[4];
 		
 
 $(function() {
-	$('#interface').css('display', 'none');
-	$('#game').css('display', 'block');
+	$('[id*="interface"]').css('display', 'none');
+	$('#game').css('display', 'none');
 	b.addEventListener('keyup',  keyd);
 	
-
-	// Liste des personnages présent sur le caroussel
-	$("#prev").click(function(){
-			$("#caroussel ul li:first").before(
-				$("#caroussel ul li:last"));
-			$("#caroussel ul").css({left:-300});
-			$("#caroussel ul").animate({left:0}, 1000);
+	// Choix du bouton "tu es gentil" avec affichage du slider des gentils
+	$('#good_character').click(function(){
+		$('#interface_nice').css('display', 'block');
+		$('#caroussel_nice').addClass('active');
+		$('#caroussel_bad').removeClass('active');
+		$('#choice').css('display', 'none');
 	});
 
-	$("#next").click(function(){
-		$("#caroussel ul").animate({left:-300},1000, function (){
-			$("#caroussel ul li:last").after(
-				$("#caroussel ul li:first"));
+	// Choix du bouton "tu es méchant" avec affichage du slider des méchants
+	$('#bad_character').click(function(){
+		$('#interface_bad').css('display', 'block');
+		$('#caroussel_bad').addClass('active');
+		$('#caroussel_nice').removeClass('active');
+		$('#choice').css('display', 'none');
+	});
+
+	// Liste des personnages présent sur le caroussel
+	$(".prev").click(function(){
+			$(".active ul li:first").before(
+				$(".active ul li:last"));
+			$(".active ul").css({left:-300});
+			$(".active ul").animate({left:0}, 1000);
+	});
+
+	$(".next").click(function(){
+		$(".active ul").animate({left:-300},1000, function (){
+			$(".active ul li:last").after(
+				$(".active ul li:first"));
 				$(this).css({left:0});
 		});
 	});
 
 	// Changer la class du personnage pour changer son visage
-	$('#character1').click(function(){
-		document.getElementById('tete').className='teteHitler';
+
+	// Gentil
+	$('#character_nice_1').click(function(){
+		$('#tete').addClass('teteDora');
 	});
 
-	$('#character2').click(function(){
-		document.getElementById('tete').className='teteStaline';
+	$('#character_nice_2').click(function(){
+		$('#tete').addClass('teteBisounours');
 	});
 
-	$('#character3').click(function(){
-		document.getElementById('tete').className='teteObama';
+	$('#character_nice_3').click(function(){
+		$('#tete').addClass('teteSchtroumph');
+	});
+
+	// Méchant
+	$('#character_bad_1').click(function(){
+		$('#tete').addClass('teteHitler');
+	});
+
+	$('#character_bad_2').click(function(){
+		$('#tete').addClass('teteStaline');
+	});
+
+	$('#character_bad_3').click(function(){
+		$('#tete').addClass('teteObama');
 	});
 
 	// Lancer le jeu
-	$('#play').click(function(){
-		$('#interface').css('display', 'none');
+	$('.play').click(function(){
+		$('[id*="interface"]').css('display', 'none');
 		$('#game').css('display', 'block');
+	});
+
+	
+	$('#change').click(function(){
+		$('#game').css('display', 'none');
+		$('#choice').css('display', 'block');
 	});
 
 });
