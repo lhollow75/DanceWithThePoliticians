@@ -18,6 +18,9 @@ body {
 div {
 	position:absolute;
 	-webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    -ms-transform-style:preserve-3d;
 }
 #page {
 	height:100%;
@@ -35,88 +38,19 @@ div {
 	-webkit-box-reflect: below  -7px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(10%, transparent), to(rgba(255,255,255,0.2)));
 }
 
-.teteDora{
+
+#tete{
 	width: 100px;
 	height: 100px;
 	border-radius: 50px;
 	
+	position: absolute;
+
 	overflow: hidden;
 
-	position: absolute;
-	top:60px;
-	left:100px;
+    top:60px !important;
+    left:100px !important;
 
-	background-image: url('../img/tete/head_dora.png');
-}
-
-.teteSchtroumph{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	
-	overflow: hidden;
-
-	position: absolute;
-	top:60px;
-	left:100px;
-
-	background-image: url('../img/tete/head_schtroumph.jpg');
-}
-
-.teteBisounours{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	
-	overflow: hidden;
-
-	position: absolute;
-	top:60px;
-	left:100px;
-
-	background-image: url('../img/tete/head_bisounours.jpg');
-}
-
-.teteHitler{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	
-	overflow: hidden;
-
-	position: absolute;
-	top:60px;
-	left:100px;
-
-	background-image: url('../img/tete/head_hitler.jpg');
-}
-
-.teteStaline{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	
-	overflow: hidden;
-
-	position: absolute;
-	top:60px;
-	left:100px;
-
-	background-image: url('../img/tete/head_staline.jpg');
-}
-
-.teteObama{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	
-	overflow: hidden;
-
-	position: absolute;
-	top:60px;
-	left:100px;
-
-	background-image: url('../img/tete/head_obama.png');
 }
 
 #corps{
@@ -128,27 +62,13 @@ div {
 	left:144px;
 }
 
-#jambe_gauche{
-	width: 100px;
-	height: 5px;
-	background-color: white;
-	position: absolute;
-	top:340px;
-	left:60px;
-	-webkit-transform:rotate(-45deg);
-}
 
-#jambe_droite{
-	width: 100px;
-	height: 5px;
-	background-color: white;
-	position: absolute;
-	top:340px;
-	left:135px;
-	-webkit-transform:rotate(45deg);
-}
-
-
+.teteDora{background-image: url('../img/tete/head_dora.png');}
+.teteSchtroumph{background-image: url('../img/tete/head_schtroumph.jpg');}
+.teteBisounours{background-image: url('../img/tete/head_bisounours.jpg');}
+.teteHitler{background-image: url('../img/tete/head_hitler.jpg');}
+.teteStaline{background-image: url('../img/tete/head_staline.jpg');}
+.teteObama{background-image: url('../img/tete/head_obama.png');}
 
 /* ========= Mouvements ========= */
 
@@ -160,6 +80,10 @@ div {
     position: absolute;
 
     transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
     transform-origin:50% 0%;
     top:170px !important;
     left:147px !important;
@@ -167,7 +91,6 @@ div {
 
 .bras_gauche {transform:rotate(5deg)}
 .bras_droit {transform:rotate(-5deg)}
-
 
 .bras_move_-135 { transform:rotate(-135deg) !important}
 .bras_move_-90 { transform:rotate(-90deg) !important}
@@ -183,167 +106,66 @@ div {
 
 
 
-
+.tete{
+	/* Transition */
+    transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+}
 
 
 .tete_move1{
 	top:60px !important;
 	left:100px !important;
-
 	/* Rotation axiale */
 	transform: rotateX(0deg) !important;
-
-	/* Transition */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
 }
 
 .tete_move2{
 	top:80px !important;
 	left:100px !important;
-
 	/* Rotation axiale */
 	transform: rotateX(50deg) !important;
+}
 
-	/* Transition */
+
+
+
+
+.jambe{
+    width: 5px;
+    height: 100px;
+
+    background-color: white;
+    position: absolute;
+
     transition: all 300ms linear;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
     -ms-transition: all 300ms linear;
+    transform-origin:50% 0%;
+    top:305px !important;
+    left:147px !important;
 }
 
+.jambe_gauche {transform:rotate(25deg)}
+.jambe_droite {transform:rotate(-25deg)}
 
 
-/*en haut à droite*/
-.jambe_move1{
-
-	top:270px !important;
-	left:135px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(-45deg) !important;
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-
-/*au milieu à droite*/
-.jambe_move2{
-
-	top:304px !important;
-	left:150px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(0deg) !important;
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*en bas à droite*/
-.jambe_move3{
-
-	top:340px !important;
-	left:135px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(45deg) !important;
-
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*en bas à gauche*/
-.jambe_move4{
-
-	top:340px !important;
-	left:63px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(135deg) !important;
-
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-}
-
-/*au milieu à gauche*/
-.jambe_move5{
-
-	top:304px !important;
-	left:50px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(180deg) !important;
-
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear ;
-    -o-transition: all 300ms linear ;
-    -ms-transition: all 300ms linear ;
-}
-
-/*en haut à gauche*/
-.jambe_move6{
-
-	top:270px !important;
-	left:60px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(225deg) !important;
-
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear ;
-    -o-transition: all 300ms linear ;
-    -ms-transition: all 300ms linear ;
-}
-
-/*en haut à droite*/
-.jambe_move7{
-
-	top:272px !important;
-	left:140px !important;
-
-	/* Rotation */
-	-webkit-transform:rotate(320deg) !important;
-
-	/* Deplacement */
-    transition: all 300ms linear;
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear ;
-    -o-transition: all 300ms linear ;
-    -ms-transition: all 300ms linear ;
-}
-
-
-
+.jambe_move_-135 { transform:rotate(-135deg) !important}
+.jambe_move_-90 { transform:rotate(-90deg) !important}
+.jambe_move_-45 { transform:rotate(-45deg) !important}
+.jambe_move_45 { transform:rotate(45deg) !important}
+.jambe_move_90 { transform:rotate(90deg) !important}
+.jambe_move_135 { transform:rotate(135deg) !important}
+.jambe_move_180 { transform:rotate(180deg) !important}
+.jambe_move_-180 { transform:rotate(-180deg) !important}
+.jambe_move__360 { transform:rotate(360deg) !important; transition: all 700ms linear !important}
+.jambe_move_-360 { transform:rotate(-360deg) !important; transition: all 700ms linear !important}
+.jambe_move_0 { transform:rotate(0deg) !important; transition: all 700ms linear !important}
 
 
 
