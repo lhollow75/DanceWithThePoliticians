@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/caroussel.css">
+	<link rel="stylesheet" type="text/css" href="css/caroussel.css" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/audio.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
@@ -56,7 +57,7 @@
 
 	<div id="game">
 
-		<div id="tete"></div>
+		<div id="tete" class="teteDefault"></div>
 		<div id="corps"></div>
 		<div id="bras_droit" class="bras bras_droit"></div>
 		<div id="bras_gauche" class="bras bras_gauche"></div>
@@ -66,6 +67,20 @@
 		<button id="change">Change your character</button>
 
 	</div>
+
+	<div id="player">
+		<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+	        <source type="audio/mp3" src="mp3/Caramelldansen.mp3">
+	        Sorry, your browser does not support HTML5 audio.
+	    </audio>
+	    
+	    <ul id="playlist">
+	        <li class="active"><a href="mp3/Caramelldansen.mp3">CaramellDansen</a></li>
+	        <li><a href="mp3/Llevan_Polka.mp3">Llevan Polka</a></li>
+	        <li><a href="mp3/What_Is_Love.mp3">What Is Love</a></li>
+
+	    </ul>
+    </div>
 		
 	<script type="text/javascript" src="js/javascript.js"></script>
 
