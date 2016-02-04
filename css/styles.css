@@ -35,6 +35,20 @@ div {
 	-webkit-box-reflect: below  -7px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(10%, transparent), to(rgba(255,255,255,0.2)));
 }
 
+.teteDefault{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	
+	overflow: hidden;
+
+	position: absolute;
+	top:60px;
+	left:100px;
+
+	background: white;
+}
+
 .teteDora{
 	width: 100px;
 	height: 100px;

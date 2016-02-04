@@ -4,17 +4,24 @@ var jambe_d = document.getElementById('jambe_droite');
 var jambe_g = document.getElementById('jambe_gauche');
 var b = document.getElementsByTagName('body')[0];
 
+
 // création d'un tableau qui rassemble les mouvements dispo dans le css (pour la fonction random notamment)
 var position_bras = [180, -135, -90, -45, 45, 90, 135, -180, -360, 360, 0];
 
 // initialisation de la position des bras (pour la touche entrée et suppr)
 var position_bras_droit = position_bras[3];
 var position_bras_gauche = position_bras[4];
+
+var audio = $('audio');
+var playlist = $('#playlist'); 
+var tracks = playlist.find('li a');
+var current = 0;
 		
 
 $(function() {
 	$('[id*="interface"]').css('display', 'none');
 	$('#game').css('display', 'none');
+	$('#player').css('display', 'none');
 	b.addEventListener('keyup',  keyd);
 	
 	// Choix du bouton "tu es gentil" avec affichage du slider des gentils
@@ -54,42 +61,81 @@ $(function() {
 	// Gentil
 	$('#character_nice_1').click(function(){
 		$('#tete').addClass('teteDora');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	$('#character_nice_2').click(function(){
 		$('#tete').addClass('teteBisounours');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	$('#character_nice_3').click(function(){
 		$('#tete').addClass('teteSchtroumph');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	// Méchant
 	$('#character_bad_1').click(function(){
 		$('#tete').addClass('teteHitler');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	$('#character_bad_2').click(function(){
 		$('#tete').addClass('teteStaline');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	$('#character_bad_3').click(function(){
 		$('#tete').addClass('teteObama');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	// Lancer le jeu
 	$('.play').click(function(){
 		$('[id*="interface"]').css('display', 'none');
 		$('#game').css('display', 'block');
+		$('#player').css('display', 'block');
 	});
 
 	
 	$('#change').click(function(){
 		$('#game').css('display', 'none');
+		$('#player').css('display', 'none');
 		$('#choice').css('display', 'block');
+		$('#audio').off('play');
 	});
 
+	init();
+
 });
+
+function init(){
+    len = tracks.length - 1;
+    audio[0].volume = 1;
+    playlist.find('a').click(function(e){
+        e.preventDefault();
+        link = $(this);
+        current = link.parent().index();
+        run(link, audio[0]);
+    });
+    audio[0].addEventListener('ended',function(e){
+        current++;
+        if(current == len){
+            current = 0;
+            link = playlist.find('a')[0];
+        }else{
+            link = playlist.find('a')[current];    
+        }
+        run($(link),audio[0]);
+    });
+}
+function run(link, player){
+        player.src = link.attr('href');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        audio[0].load();
+        audio[0].play();
+}
 
 // Permet de bouger les bras selon son côté et l'angle de destination
 // Retour à la normal par la suite
