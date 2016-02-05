@@ -121,18 +121,29 @@ div {
 .bras_gauche {transform:rotate(5deg)}
 .bras_droit {transform:rotate(-5deg)}
 
-
+/* Rotation dans le sens des aiguilles d'une montre */
+.bras_move_-360 { transform:rotate(-360deg) !important; transition: all 700ms linear !important}
+.bras_move_-315 { transform:rotate(-315deg) !important; transition: all 700ms linear !important}
+.bras_move_-270 { transform:rotate(-270deg) !important; transition: all 700ms linear !important}
+.bras_move_-225 { transform:rotate(-225deg) !important; transition: all 700ms linear !important}
+.bras_move_-180 { transform:rotate(-180deg) !important}
 .bras_move_-135 { transform:rotate(-135deg) !important}
 .bras_move_-90 { transform:rotate(-90deg) !important}
 .bras_move_-45 { transform:rotate(-45deg) !important}
+
+.bras_move_0 { transform:rotate(0deg) !important; transition: all 700ms linear !important}
+
+/* Rotation dans le sens des aiguilles d'une montre */
 .bras_move_45 { transform:rotate(45deg) !important}
 .bras_move_90 { transform:rotate(90deg) !important}
 .bras_move_135 { transform:rotate(135deg) !important}
 .bras_move_180 { transform:rotate(180deg) !important}
-.bras_move_-180 { transform:rotate(-180deg) !important}
+.bras_move_225 { transform:rotate(225deg) !important; transition: all 700ms linear !important}
+.bras_move_270 { transform:rotate(270deg) !important; transition: all 700ms linear !important}
+.bras_move_315 { transform:rotate(315deg) !important; transition: all 700ms linear !important}
 .bras_move_360 { transform:rotate(360deg) !important; transition: all 700ms linear !important}
-.bras_move_-360 { transform:rotate(-360deg) !important; transition: all 700ms linear !important}
-.bras_move_0 { transform:rotate(0deg) !important; transition: all 700ms linear !important}
+
+
 
 
 
@@ -296,7 +307,9 @@ div {
 }
 
 
-
+.niveau .touche .commentaire .point .chrono{
+	
+}
 
 
 
