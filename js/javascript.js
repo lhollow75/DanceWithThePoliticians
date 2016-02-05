@@ -18,6 +18,7 @@ var position_bras = [-360, -315, -270, -225, -180, -135, -90, -45, 0, 45, 90, 13
 var position_bras_droit = position_bras[3];
 var position_bras_gauche = position_bras[4];
 
+
 // Mode jeu
 var isPlaying = false;
 var listeEnchainements = [37,38,39,40];
@@ -43,44 +44,132 @@ $(function() {
 			keyMoves(e);
 		}
 	});
-	
 
-	// Liste des personnages présent sur le caroussel
-	$("#prev").click(function(){
-			$("#caroussel ul li:first").before(
-				$("#caroussel ul li:last"));
-			$("#caroussel ul").css({left:-300});
-			$("#caroussel ul").animate({left:0}, 1000);
+var audio = $('audio');
+var playlist = $('#playlist'); 
+var tracks = playlist.find('li a');
+var current = 0;
+		
+
+$(function() {
+	$('[id*="interface"]').css('display', 'none');
+	$('#game').css('display', 'none');
+	$('#player').css('display', 'none');
+	b.addEventListener('keyup',  keyd);
+
+	
+	// Choix du bouton "tu es gentil" avec affichage du slider des gentils
+	$('#good_character').click(function(){
+		$('#interface_nice').css('display', 'block');
+		$('#caroussel_nice').addClass('active');
+		$('#caroussel_bad').removeClass('active');
+		$('#choice').css('display', 'none');
 	});
 
-	$("#next").click(function(){
-		$("#caroussel ul").animate({left:-300},1000, function (){
-			$("#caroussel ul li:last").after(
-				$("#caroussel ul li:first"));
+	// Choix du bouton "tu es méchant" avec affichage du slider des méchants
+	$('#bad_character').click(function(){
+		$('#interface_bad').css('display', 'block');
+		$('#caroussel_bad').addClass('active');
+		$('#caroussel_nice').removeClass('active');
+		$('#choice').css('display', 'none');
+	});
+
+	// Liste des personnages présent sur le caroussel
+	$(".prev").click(function(){
+			$(".active ul li:first").before(
+				$(".active ul li:last"));
+			$(".active ul").css({left:-300});
+			$(".active ul").animate({left:0}, 1000);
+	});
+
+	$(".next").click(function(){
+		$(".active ul").animate({left:-300},1000, function (){
+			$(".active ul li:last").after(
+				$(".active ul li:first"));
 				$(this).css({left:0});
 		});
 	});
 
 	// Changer la class du personnage pour changer son visage
-	$('#character1').click(function(){
-		document.getElementById('tete').className='teteHitler';
+
+	// Gentil
+	$('#character_nice_1').click(function(){
+		$('#tete').addClass('teteDora');
+		$('#tete').removeClass('teteDefault');
 	});
 
-	$('#character2').click(function(){
-		document.getElementById('tete').className='teteStaline';
+	$('#character_nice_2').click(function(){
+		$('#tete').addClass('teteBisounours');
+		$('#tete').removeClass('teteDefault');
 	});
 
-	$('#character3').click(function(){
-		document.getElementById('tete').className='teteObama';
+	$('#character_nice_3').click(function(){
+		$('#tete').addClass('teteSchtroumph');
+		$('#tete').removeClass('teteDefault');
+	});
+
+	// Méchant
+	$('#character_bad_1').click(function(){
+		$('#tete').addClass('teteHitler');
+		$('#tete').removeClass('teteDefault');
+	});
+
+	$('#character_bad_2').click(function(){
+		$('#tete').addClass('teteStaline');
+		$('#tete').removeClass('teteDefault');
+	});
+
+	$('#character_bad_3').click(function(){
+		$('#tete').addClass('teteObama');
+		$('#tete').removeClass('teteDefault');
 	});
 
 	// Lancer le jeu
-	$('#play').click(function(){
-		$('#interface').css('display', 'none');
+	$('.play').click(function(){
+		$('[id*="interface"]').css('display', 'none');
 		$('#game').css('display', 'block');
+		$('#player').css('display', 'block');
 	});
 
+	
+	$('#change').click(function(){
+		$('#game').css('display', 'none');
+		$('#player').css('display', 'none');
+		$('#choice').css('display', 'block');
+		$('#audio').off('play');
+	});
+
+	init();
+
 });
+
+function init(){
+    len = tracks.length - 1;
+    audio[0].volume = 1;
+    playlist.find('a').click(function(e){
+        e.preventDefault();
+        link = $(this);
+        current = link.parent().index();
+        run(link, audio[0]);
+    });
+    audio[0].addEventListener('ended',function(e){
+        current++;
+        if(current == len){
+            current = 0;
+            link = playlist.find('a')[0];
+        }else{
+            link = playlist.find('a')[current];    
+        }
+        run($(link),audio[0]);
+    });
+}
+function run(link, player){
+        player.src = link.attr('href');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        audio[0].load();
+        audio[0].play();
+}
 
 // Permet de bouger les bras selon son côté et l'angle de destination
 // Retour à la normal par la suite

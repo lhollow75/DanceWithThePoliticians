@@ -4,27 +4,52 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/caroussel.css">
+	<link rel="stylesheet" type="text/css" href="css/caroussel.css" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/audio.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script ></script>
 </head>
 <body>
 
-	<div id="interface">
-		<div id="caroussel">
+	<div id="choice">
+		
+		<button id="good_character">Tu es gentil ?</button>
+		<button id="bad_character">Tu es méchant ?</button>
+	</div>
+
+	<!-- Caroussel bouton "Tu es gentil ?" -->
+	<div id="interface_nice">
+		<div id="caroussel_nice" class="caroussel">
 			<ul>
-				<li><a href="#" id="character1" class="character1"><img src="img/Character_1.jpg" alt="Loup 1"></a></li>
-				<li><a href="#" id="character2" class="character2"><img src="img/Character_2.jpg" alt="Loup 2"></a></li>
-				<li><a href="#" id="character3" class="character3"><img src="img/Character_3.jpg" alt="Loup 3"></a></li>
+				<li><a href="#" id="character_nice_1" class="character_nice"><img src="img/caroussel/car_dora.jpg" alt="Dora"></a></li>
+				<li><a href="#" id="character_nice_2" class="character_nice"><img src="img/caroussel/car_bisounours.jpg" alt="Bisounours"></a></li>
+				<li><a href="#" id="character_nice_3" class="character_nice"><img src="img/caroussel/car_schtroumph.jpg" alt="Schtroumph"></a></li>
 			</ul>
 
-			<button class="prev" id="prev">Next character</button>
-			<button class="next" id="next">Previous character</button>
+			<button class="prev" id="prev_nice">Next character</button>
+			<button class="next" id="next_nice">Previous character</button>
 		</div>
 
 		<div id="play">
-			<a href="#" id="play">Jouez !</a>
+			<a href="#" id="play_nice" class="play">Jouez !</a>
+		</div>
+	</div>
+
+	<!-- Caroussel bouton "Tu es méchant ?" -->
+	<div id="interface_bad">
+		<div id="caroussel_bad" class="caroussel">
+			<ul>
+				<li><a href="#" id="character_bad_1" class="character_bad"><img src="img/caroussel/car_hitler.jpg" alt="Hitler"></a></li>
+				<li><a href="#" id="character_bad_2" class="character_bad"><img src="img/caroussel/car_staline.jpg" alt="Staline"></a></li>
+				<li><a href="#" id="character_bad_3" class="character_bad"><img src="img/caroussel/car_obama.jpg" alt="Obama"></a></li>
+			</ul>
+
+			<button class="prev" id="prev_bad">Next character</button>
+			<button class="next" id="next_nice">Previous character</button>
+		</div>
+
+		<div id="play">
+			<a href="#" id="play_bad" class="play">Jouez !</a>
 		</div>
 	</div>
 
@@ -52,7 +77,32 @@
 			<div id = "chrono"></div><br /><br />
 		</div>
 		
+
+		<div id="tete" class="teteDefault"></div>
+		<div id="corps"></div>
+		<div id="bras_droit" class="bras bras_droit"></div>
+		<div id="bras_gauche" class="bras bras_gauche"></div>
+		<div id="jambe_droite" class="jambe jambe_droite"></div>
+		<div id="jambe_gauche" class="jambe jambe_gauche"></div>
+
+		<button id="change">Change your character</button>
+
+
 	</div>
+
+	<div id="player">
+		<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+	        <source type="audio/mp3" src="mp3/Caramelldansen.mp3">
+	        Sorry, your browser does not support HTML5 audio.
+	    </audio>
+	    
+	    <ul id="playlist">
+	        <li class="active"><a href="mp3/Caramelldansen.mp3">CaramellDansen</a></li>
+	        <li><a href="mp3/Llevan_Polka.mp3">Llevan Polka</a></li>
+	        <li><a href="mp3/What_Is_Love.mp3">What Is Love</a></li>
+
+	    </ul>
+    </div>
 		
 	<script type="text/javascript" src="js/javascript.js"></script>
 
