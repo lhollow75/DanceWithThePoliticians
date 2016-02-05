@@ -30,13 +30,21 @@ var ATIlAppuye;
 var enchainement = [listeEnchainements, first_game];
 var point = 0;
 var vie = 3;
+
+// Player
+var audio = $('audio');
+var playlist = $('#playlist'); 
+var tracks = playlist.find('li a');
+var current = 0;
+		
+
+
 		
 
 $(function() {
-	$('#interface').css('display', 'none');
-	$('#game').css('display', 'block');
-
-	
+	$('[id*="interface"]').css('display', 'none');
+	$('#game').css('display', 'none');
+	$('#player').css('display', 'none');
 	b.addEventListener('keyup',  function(e){
 		if (isPlaying){
 			play(e);
@@ -44,19 +52,7 @@ $(function() {
 			keyMoves(e);
 		}
 	});
-
-var audio = $('audio');
-var playlist = $('#playlist'); 
-var tracks = playlist.find('li a');
-var current = 0;
-		
-
-$(function() {
-	$('[id*="interface"]').css('display', 'none');
-	$('#game').css('display', 'none');
-	$('#player').css('display', 'none');
-	b.addEventListener('keyup',  keyd);
-
+	
 	
 	// Choix du bouton "tu es gentil" avec affichage du slider des gentils
 	$('#good_character').click(function(){
