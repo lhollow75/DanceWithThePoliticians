@@ -7,6 +7,10 @@ body{
     color: #333;
     font-family: 'Terminal Dosis', Arial, sans-serif;
     font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-width: 500px;
+
 }
 
 .container_pano{
@@ -88,11 +92,6 @@ body{
         -webkit-animation-timing-function: ease-out;
     }
 }
-
-.container{
-    position:relative;
-}
-
 
 
 .ca-menu{
