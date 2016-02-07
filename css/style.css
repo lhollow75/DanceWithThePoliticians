@@ -1,7 +1,12 @@
 @import url('reset.css');
 
 
-/* Font */
+#intro{
+    padding:0;
+    margin: -30px auto;
+    width: 100%;
+}
+
 
 #text {
 	margin-top:-150px;
@@ -19,21 +24,36 @@ div {
 	position:absolute;
 	-webkit-transform-style:preserve-3d;
 }
+
+#game{
+    position:relative;
+    top:0px;
+    margin-left: auto;
+    margin-right: auto;
+	width: 500px;
+	/*border: 1px solid red;*/
+}
+
+#perso{
+	text-align: center;
+	vertical-align: middle;
+
+	position: absolute;
+	left:0px;
+	top: 0px;
+}
+
 #page {
-	height:100%;
-	width:100%;
+	height:50%;
+	width:50%;
+	line-height: 80px;
+
 
 	-moz-perspective:700px;
 	background-image: -moz-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
 }
-#container {
-	height:300px;
-	width:300px;
-	top:50%; left:50%;
-	margin-top:-150px;
-	margin-left:-150px;
-	-webkit-box-reflect: below  -7px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(10%, transparent), to(rgba(255,255,255,0.2)));
-}
+
+
 
 #tete{
 	width: 150px;
@@ -61,7 +81,7 @@ div {
 .tetePoutine{
 	background-image: url('../img/tete/head_poutine_1.png') !important;
 }
-.teteElizabeth{
+.teteCameron{
 	background-image: url('../img/tete/head_cameron_1.png') !important;
 }
 

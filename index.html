@@ -13,95 +13,102 @@
     </head>
     <body>
 
+
         <div class="container_pano">
             <div class="pano"></div>
         </div>
 
-        <div class="choose">CHOOSE YOUR DANCER</div>
+        <div id="intro">
 
-        <div class="container"></div>
+            <div class="choose">CHOOSE YOUR DANCER</div>
+
 
  
-        <ul class="ca-menu">
-                    <li>
-                        <a href="#" id="character_nice_1">
-                            <span class="ca-icon obama"></span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">Barack<br/>Obama</h2>
-                                <h3 class="ca-sub">Etats-Unis</h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="character_nice_2">
-                            <span class="ca-icon merkel"></span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">Angela<br/>Merkel</h2>
-                                <h3 class="ca-sub">Allemagne</h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="character_nice_3">
-                            <span class="ca-icon hollande"></span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">François<br/>Hollande</h2>
-                                <h3 class="ca-sub">France</h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="character_nice_4">
-                            <span class="ca-icon cameron"></span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">David<br/>Cameron</h2>
-                                <h3 class="ca-sub">Royaume-Uni</h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="character_nice_5">
-                            <span class="ca-icon poutine"></span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">Vladimir<br/>Poutine</h2>
-                                <h3 class="ca-sub">Russie</h3>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="ca-menu">
+				<li>
+					<a href="#" id="character_nice_1">
+						<span class="ca-icon obama"></span>
+						<div class="ca-content">
+							<h2 class="ca-main">Barack<br/>Obama</h2>
+							<h3 class="ca-sub">Etats-Unis</h3>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="character_nice_2">
+						<span class="ca-icon merkel"></span>
+						<div class="ca-content">
+							<h2 class="ca-main">Angela<br/>Merkel</h2>
+							<h3 class="ca-sub">Allemagne</h3>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="character_nice_3">
+						<span class="ca-icon hollande"></span>
+						<div class="ca-content">
+							<h2 class="ca-main">François<br/>Hollande</h2>
+							<h3 class="ca-sub">France</h3>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="character_nice_4">
+						<span class="ca-icon cameron"></span>
+						<div class="ca-content">
+							<h2 class="ca-main">David<br/>Cameron</h2>
+							<h3 class="ca-sub">Royaume-Uni</h3>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="character_nice_5">
+						<span class="ca-icon poutine"></span>
+						<div class="ca-content">
+							<h2 class="ca-main">Vladimir<br/>Poutine</h2>
+							<h3 class="ca-sub">Russie</h3>
+						</div>
+					</a>
+				</li>
+            </ul>
+        
+        </div>
+
+        
+
+
+        <div id="game">
+                
+                <br />
+                
+
+                <div id="niveau"></div><br /><br /><br /><br />
+                <div id="point"></div>  <br /><br /><br /><br />
+                <br /><br /><br /><br />
+                <div id="touche"></div> <br /><br />
+                <div id="touche_suivante"></div>    <br /><br /><br /><br />
+                <div id = "commentaire"></div><br /><br /><br /><br />
+                <div id = "chrono"></div><br /><br /><br /><br />
+
+                
+                <div id="perso">
+                        <div id="tete" class="teteObama tete_move1"></div>
+                        <div id="corps"></div>
+                        <div id="bras_droit" class="bras bras_droit"></div>
+                        <div id="bras_gauche" class="bras bras_gauche"></div>
+                        <div id="jambe_droite" class="jambe jambe_droite"></div>
+                        <div id="jambe_gauche" class="jambe jambe_gauche"></div>
+                </div>
+
         </div>
 
 
 
-    <div id="game">
-        
-        <br />
-        
-
-        <div id="niveau"></div><br /><br /><br /><br />
-        <div id="point"></div>  <br /><br /><br /><br />
-        <br /><br /><br /><br />
-        <div id="touche"></div> <br /><br />
-        <div id="touche_suivante"></div>    <br /><br /><br /><br />
-        <div id = "commentaire"></div><br /><br /><br /><br />
-        <div id = "chrono"></div><br /><br /><br /><br />
-
-        
-
-        <div id="tete" class="teteObama tete_move1"></div>
-        <div id="corps"></div>
-        <div id="bras_droit" class="bras bras_droit"></div>
-        <div id="bras_gauche" class="bras bras_gauche"></div>
-        <div id="jambe_droite" class="jambe jambe_droite"></div>
-        <div id="jambe_gauche" class="jambe jambe_gauche"></div>
 
 
-    </div>
     
-    <script type="text/javascript" src="js/javascript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+        <script type="text/javascript" src="js/javascript.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
     </body>
 </html>

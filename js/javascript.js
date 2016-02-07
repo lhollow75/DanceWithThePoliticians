@@ -5,6 +5,13 @@ var jambe_g = document.getElementById('jambe_gauche');
 var elt_tete = document.getElementById('tete');
 var b = document.getElementsByTagName('body')[0];
 
+// Choix du perso
+var elt_obama = document.getElementById('character_nice_1');
+var elt_merkel = document.getElementById('character_nice_2');
+var elt_hollande = document.getElementById('character_nice_3');
+var elt_cameron = document.getElementById('character_nice_4');
+var elt_poutine = document.getElementById('character_nice_5');
+
 
 // création d'un tableau qui rassemble les mouvements dispo dans le css (pour la fonction random notamment)
 var position_membre = [-360, -315, -270, -225, -180, -135, -90, -45, 0, 45, 90, 135, 180, 225, 270, 315, 360, -50, 50];
@@ -48,6 +55,25 @@ b.addEventListener('keyup',  function(e){
 	}
 });
 
+elt_obama.addEventListener('click', function(){
+	changement_tete('teteObama');
+});
+elt_merkel.addEventListener('click', function(){
+	changement_tete('teteMerkel');
+});
+elt_hollande.addEventListener('click', function(){
+	changement_tete('teteHollande');
+});
+elt_cameron.addEventListener('click', function(){
+	changement_tete('teteCameron');
+});
+elt_poutine.addEventListener('click', function(){
+	changement_tete('tetePoutine');
+});
+
+function changement_tete(nouvelle_tete){
+	elt_tete.className = "tete_move1 "+ nouvelle_tete;
+}
 
 
 
