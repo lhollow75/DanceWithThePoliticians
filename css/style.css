@@ -226,36 +226,21 @@ div {
     font-family: 'Terminal Dosis', Arial, sans-serif;
     transform-origin:50% 0%;
     -webkit-animation: menujeu;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
 }
 
-#point, #touche, #touche_suivante, #chrono{
-    font-size: 13px;
+@-webkit-keyframes menujeu{
+    0%{left:-100px;opacity: 0;}
+    100%{left: 0px;opacity: 1;}
 }
 
+#point, #touche, #touche_suivante, #chrono{font-size: 13px;}
 
-#niveau{
-    font-size: 30px;
-}
-
-#point{
-    top: 50px;
-}
-
-#touche{
-    top: 70px;
-}
-
-#touche_suivante{
-    top: 90px;
-}
-
-#chrono{
-    top: 150px;
-}
-
+#niveau{font-size: 30px;}
+#point{top: 70px;}
+#touche{top: 100px;}
+#touche_suivante{top: 90px;}
+#chrono{top: 150px;}
 
 
 #commentaire{
@@ -265,9 +250,22 @@ div {
 }
 
 
-
-@-webkit-keyframes menujeu{
-    0%{left:-100px;opacity: 0;}
-    100%{left: 0px;opacity: 1;}
+#fleche{
+    width: 100px;
+    height: 100px;
+    transform: scale(0.3);
 }
+
+.haut{background-image: url('../img/fleche/haut.png') !important;}
+.droite{background-image: url('../img/fleche/droite.png') !important;}
+.bas{background-image: url('../img/fleche/bas.png') !important;}
+.gauche{background-image: url('../img/fleche/gauche.png') !important;}
+
+
+
+
+
+
+
+
 
