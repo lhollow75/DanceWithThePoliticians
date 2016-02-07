@@ -1,110 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	
-	<link rel="stylesheet" type="text/css" href="css/caroussel.css" />
-	<link rel="stylesheet" type="text/css" href="css/styles.css" />
-	<link rel="stylesheet" type="text/css" href="css/audio.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-</head>
-<body>
-
-	<div id="choice">
-		
-		<button id="good_character">Tu es gentil ?</button>
-		<button id="bad_character">Tu es méchant ?</button>
-	</div>
-
-	<!-- Caroussel bouton "Tu es gentil ?" -->
-	<div id="interface_nice">
-		<div id="caroussel_nice" class="caroussel">
-			<ul>
-				<li><a href="#" id="character_nice_1" class="character_nice"><img src="img/caroussel/car_dora.jpg" alt="Dora"></a></li>
-				<li><a href="#" id="character_nice_2" class="character_nice"><img src="img/caroussel/car_bisounours.jpg" alt="Bisounours"></a></li>
-				<li><a href="#" id="character_nice_3" class="character_nice"><img src="img/caroussel/car_schtroumph.jpg" alt="Schtroumph"></a></li>
-			</ul>
-
-			<button class="prev" id="prev_nice">Next character</button>
-			<button class="next" id="next_nice">Previous character</button>
-		</div>
-
-		<div id="play">
-			<a href="#" id="play_nice" class="play">Jouez !</a>
-		</div>
-	</div>
-
-	<!-- Caroussel bouton "Tu es méchant ?" -->
-	<div id="interface_bad">
-		<div id="caroussel_bad" class="caroussel">
-			<ul>
-				<li><a href="#" id="character_bad_1" class="character_bad"><img src="img/caroussel/car_hitler.jpg" alt="Hitler"></a></li>
-				<li><a href="#" id="character_bad_2" class="character_bad"><img src="img/caroussel/car_staline.jpg" alt="Staline"></a></li>
-				<li><a href="#" id="character_bad_3" class="character_bad"><img src="img/caroussel/car_obama.jpg" alt="Obama"></a></li>
-			</ul>
-
-			<button class="prev" id="prev_bad">Next character</button>
-			<button class="next" id="next_nice">Previous character</button>
-		</div>
-
-		<div id="play">
-			<a href="#" id="play_bad" class="play">Jouez !</a>
-		</div>
-	</div>
-
-	<br />
-
-	<div id="game">
-		
-		<br />
-		<div id="bonhomme">
-			<div id="tete" class="teteObama"></div>
-			<div id="corps"></div>
-			<div id="bras_droit" class="bras bras_droit"></div>
-			<div id="bras_gauche" class="bras bras_gauche"></div>
-			<div id="jambe_droite" class="jambe_move3"></div>
-			<div id="jambe_gauche" class="jambe_move4"></div>
-		</div>
-		
-		<div id="modeJeu">
-			<div id="niveau"></div><br /><br />
-			<div id="point"></div>	<br /><br />
-			<br /><br />
-			<div id="touche"></div>	<br /><br />
-			<div id="touche_suivante"></div>	<br /><br />
-			<div id = "commentaire"></div><br /><br />
-			<div id = "chrono"></div><br /><br />
-		</div>
-		
-
-		<div id="tete" class="teteDefault"></div>
-		<div id="corps"></div>
-		<div id="bras_droit" class="bras bras_droit"></div>
-		<div id="bras_gauche" class="bras bras_gauche"></div>
-		<div id="jambe_droite" class="jambe jambe_droite"></div>
-		<div id="jambe_gauche" class="jambe jambe_gauche"></div>
-
-		<button id="change">Change your character</button>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Dancing With The Politicians</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style_menu.css" />
 
 
-	</div>
+        <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<div id="player">
-		<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
-	        <source type="audio/mp3" src="mp3/Caramelldansen.mp3">
-	        Sorry, your browser does not support HTML5 audio.
-	    </audio>
-	    
-	    <ul id="playlist">
-	        <li class="active"><a href="mp3/Caramelldansen.mp3">CaramellDansen</a></li>
-	        <li><a href="mp3/Llevan_Polka.mp3">Llevan Polka</a></li>
-	        <li><a href="mp3/What_Is_Love.mp3">What Is Love</a></li>
+    </head>
+    <body>
 
-	    </ul>
+        <div class="container_pano">
+            <div class="pano"></div>
+        </div>
+
+        <div class="choose">CHOOSE YOUR DANCER</div>
+
+        <div class="container"></div>
+
+ 
+        <ul class="ca-menu">
+                    <li>
+                        <a href="#" id="character_nice_1">
+                            <span class="ca-icon obama"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Barack<br/>Obama</h2>
+                                <h3 class="ca-sub">Etats-Unis</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="character_nice_2">
+                            <span class="ca-icon merkel"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Angela<br/>Merkel</h2>
+                                <h3 class="ca-sub">Allemagne</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="character_nice_3">
+                            <span class="ca-icon hollande"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">François<br/>Hollande</h2>
+                                <h3 class="ca-sub">France</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="character_nice_4">
+                            <span class="ca-icon cameron"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">David<br/>Cameron</h2>
+                                <h3 class="ca-sub">Royaume-Uni</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="character_nice_5">
+                            <span class="ca-icon poutine"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Vladimir<br/>Poutine</h2>
+                                <h3 class="ca-sub">Russie</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    <div id="game">
+        
+        <br />
+        
+
+        <div id="niveau"></div><br /><br /><br /><br />
+        <div id="point"></div>  <br /><br /><br /><br />
+        <br /><br /><br /><br />
+        <div id="touche"></div> <br /><br />
+        <div id="touche_suivante"></div>    <br /><br /><br /><br />
+        <div id = "commentaire"></div><br /><br /><br /><br />
+        <div id = "chrono"></div><br /><br /><br /><br />
+
+        
+
+        <div id="tete" class="teteObama tete_move1"></div>
+        <div id="corps"></div>
+        <div id="bras_droit" class="bras bras_droit"></div>
+        <div id="bras_gauche" class="bras bras_gauche"></div>
+        <div id="jambe_droite" class="jambe jambe_droite"></div>
+        <div id="jambe_gauche" class="jambe jambe_gauche"></div>
+
+
     </div>
-		
-	<script type="text/javascript" src="js/javascript.js"></script>
+    
+    <script type="text/javascript" src="js/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-</body>
+
+    </body>
 </html>
