@@ -12,6 +12,8 @@ var elt_hollande = document.getElementById('character_nice_3');
 var elt_cameron = document.getElementById('character_nice_4');
 var elt_poutine = document.getElementById('character_nice_5');
 
+var move_tete;
+
 
 // création d'un tableau qui rassemble les mouvements dispo dans le css (pour la fonction random notamment)
 var position_membre = [-360, -315, -270, -225, -180, -135, -90, -45, 0, 45, 90, 135, 180, 225, 270, 315, 360, -50, 50];
@@ -44,15 +46,22 @@ var point = 0;
 var vie = 3;
 
 // Mouvement de la tête
-var mouvement_tete = setInterval(move_tete, 400);
+function mouvement_tete(){
+	move_tete = setInterval(function(){
+		elt_tete.classList.remove('tete_move'+m);
+		if (m==3)m=4; else m=3;
+		elt_tete.classList.add('tete_move'+m);
+	}, 400);
+}
+
+document.getElementById('game').style.display = 'none';
 
 b.addEventListener('keyup',  function(e){
-	clearInterval(mouvement_tete);
-	if (isPlaying){
-		play(e);
-	} else {
-		keyMoves(e);
-	}
+    if (isPlaying){
+        play(e);
+    } else {
+        keyMoves(e);
+    }
 });
 
 elt_obama.addEventListener('click', function(){
@@ -73,16 +82,13 @@ elt_poutine.addEventListener('click', function(){
 
 function changement_tete(nouvelle_tete){
 	elt_tete.className = "tete_move1 "+ nouvelle_tete;
+	document.getElementById('game').style.display = 'block';
+	document.getElementById('intro').style.display = 'none';
+	mouvement_tete();
 }
 
 
 
-
-function move_tete() {
-	elt_tete.classList.remove('tete_move'+m);
-	if (m==3)m=4; else m=3;
-	elt_tete.classList.add('tete_move'+m);
-}
 // Permet de bouger le membre selon son côté et l'angle de destination
 // Retour à la normal par la suite
 function bouge_membre(elt, angle){
@@ -98,6 +104,7 @@ function bouge_membre(elt, angle){
 
 // Activation des mouvements en fonction de la touche appuyée, dispo en mode jeu
 function fleches(ev){ 
+	clearInterval(move_tete);
 	switch(ev.keyCode) {
 		case 8: // return
 			if (position_bras_droit == -135) {
@@ -170,6 +177,7 @@ function fleches(ev){
 			}
             break;
 	}
+	mouvement_tete();
 }
 
 // Réinitialisation des variables de jeu
@@ -187,7 +195,7 @@ function angle_rdm(){
 
 // Activation des mouvements en fonction de la touche appuyée, pas dispo en mode jeu
 function keyMoves(ev) {
-	console.log(ev.keyCode);
+	// console.log(ev.keyCode);
 	
 	fleches(ev);
 	switch (ev.keyCode) {
@@ -231,6 +239,7 @@ function play(ev){
 
 	// Comparaison de la touche appuyée avec la touche attendue
     if (ev.keyCode === touche_attendue){ // Si c'est ok, il gagne un point
+		commentaire("Bravo");
         console.log('bravo');
 		point++;
 		affiche_point.innerHTML = point;
@@ -258,7 +267,13 @@ function jouer_le_step(pas, niveau){
 	} else {
 		prochaine_touche = "";
 	}
-	affiche_touche_suivante.innerHTML = "Prochaine touche: "+prochaine_touche;
+	
+	if (prochaine_touche == "") {
+		affiche_touche_suivante.innerHTML = "";
+	} else {
+		affiche_touche_suivante.innerHTML = "Prochaine touche: "+prochaine_touche;
+	}
+	
 	
     touche_appuye = false;
 
@@ -271,7 +286,7 @@ function jouer_le_step(pas, niveau){
 	// Affichage du chrono pour chaque pas
 	var timer = setInterval(function(){
 		affiche_chrono.innerHTML = "Chrono: "+compteur;
-		console.log(compteur);
+		// console.log(compteur);
 		compteur--;
 	}, 1000);
 
@@ -293,25 +308,25 @@ function jouer_le_step(pas, niveau){
 			if (pas + 1 < niveauEnCours.length) { // Si il y a encore des pas dans le niveau, on passe au pas suivant
 				jouer_le_step(pas + 1, niveau);
 			} else if (niveau + 1 < enchainement.length){ // Sinon si il y a un niveau supérieur on passe au niveau suivant
-				affiche_commentaire.innerHTML = "Passage au niveau supérieur";
+				commentaire("Passage au niveau supérieur");
 				frequence = frequence - 1000;
 				jouer_le_step(0, niveau+1)
 			} else { // Sinon c'est la fin du jeu !
 				console.log("Fin du jeu !");
-				affiche_commentaire.innerHTML = "Félicitation";
+				commentaire("Félicitation");
 			}
 		} else { // Si il n'y a plus de vie c'es la fin du jeu
 			console.log("Game Over");
-			affiche_commentaire.innerHTML = "Game Over";
+			commentaire("Game Over");
 			
 			// Suppression de tous les affichages du mode jeu au bout de 5sec après la fin du jeu
-			setTimeout(supprime_affichage, 5000);
+			setTimeout(fin_jeu, 5000);
 		}  
     }, frequence);
 }
 
-// Suppression de tous les affichages du mode jeu
-function supprime_affichage(){
+// Fin du jeu: Suppression de tous les affichages du mode jeu
+function fin_jeu(){
 	affiche_commentaire.innerHTML = "";
 	affiche_chrono.innerHTML = "";
 	affiche_touche_suivante.innerHTML = "";
@@ -320,10 +335,18 @@ function supprime_affichage(){
 	affiche_niveau.innerHTML = "";
 }
 
+function commentaire(com){
+	console.log("commentaire: "+com);
+	affiche_commentaire.innerHTML = com;
+	setTimeout(function(){
+		affiche_commentaire.innerHTML = "";
+	}, 1000);
+}
+
 
 // Le mouvement n'a pas été effectué (pas de touche ou mauvaise touche appuyée)
 function IlSEstTrompe(){
     console.log('Erreur de mouvement');
 	vie --;
-	affiche_commentaire.innerHTML = "Erreur !";
+	commentaire("Erreur");
 }
