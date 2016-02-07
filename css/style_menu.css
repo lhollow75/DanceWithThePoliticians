@@ -1,17 +1,5 @@
 @import url('reset.css');
 
-body{
-    background:#000000 url(../img/fond_scene.jpg) repeat center fixed;
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-    color: #333;
-    font-family: 'Terminal Dosis', Arial, sans-serif;
-    font-size: 13px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    min-width: 500px;
-
-}
 
 .container_pano{
     position:relative;
@@ -44,7 +32,43 @@ body{
     }
 }
 
+@-moz-keyframes movep{
+    0%{
+        top:-700px;
+        -webkit-animation-timing-function: ease-in-out;
+    }
+    80%{
+        top: -20px;
+        -webkit-animation-timing-function: ease-out;
+    }
+    90%{
+        top: -30px;
+        -webkit-animation-timing-function: ease-in-out;
+    }
+    100%{
+        top: -20px;
+        -webkit-animation-timing-function: ease-out;
+    }
+}
 
+@-ms-keyframes movep{
+    0%{
+        top:-700px;
+        -webkit-animation-timing-function: ease-in-out;
+    }
+    80%{
+        top: -20px;
+        -webkit-animation-timing-function: ease-out;
+    }
+    90%{
+        top: -30px;
+        -webkit-animation-timing-function: ease-in-out;
+    }
+    100%{
+        top: -20px;
+        -webkit-animation-timing-function: ease-out;
+    }
+}
 
 .pano{
     position:relative;
@@ -66,7 +90,16 @@ body{
     50%{transform:rotate(5deg);}
     100%{transform:rotate(-5deg);}
 }
-
+@-moz-keyframes move{
+    0%{transform:rotate(-5deg);}
+    50%{transform:rotate(5deg);}
+    100%{transform:rotate(-5deg);}
+}
+@-ms-keyframes move{
+    0%{transform:rotate(-5deg);}
+    50%{transform:rotate(5deg);}
+    100%{transform:rotate(-5deg);}
+}
 
 
 
@@ -84,12 +117,12 @@ body{
 }
 @-webkit-keyframes clignote {
     0%, 100%{
-        text-shadow:0px 0px 5px #FFFFFF;
-        -webkit-animation-timing-function: ease-in;
+        text-shadow:0px 0px 10px #FFFFFF;
+        -webkit-animation-timing-function: ease-out;
     }
     50%{
         text-shadow:0px 0px 0px #FFFFFF;
-        -webkit-animation-timing-function: ease-out;
+        -webkit-animation-timing-function: ease-in;
     }
 }
 
@@ -104,7 +137,27 @@ body{
     padding:0;
     margin:20px auto;
     width: 1020px;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+
 }
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+
+
+
 .ca-menu li{
     width: 200px;
     height: 300px;

@@ -1,5 +1,17 @@
 @import url('reset.css');
 
+body{
+    background:#000000 url(../img/fond_scene.jpg) repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+    color: #333;
+    font-family: 'Terminal Dosis', Arial, sans-serif;
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-width: 500px;
+
+}
 
 #intro{
     padding:0;
@@ -224,23 +236,15 @@ div {
 #niveau, #point, #touche, #touche_suivante, #chrono, #commentaire{
     color: #fff;
     font-family: 'Terminal Dosis', Arial, sans-serif;
-    transform-origin:50% 0%;
-    -webkit-animation: menujeu;
-    -webkit-animation-duration: 2s;
-}
-
-@-webkit-keyframes menujeu{
-    0%{left:-100px;opacity: 0;}
-    100%{left: 0px;opacity: 1;}
 }
 
 #point, #touche, #touche_suivante, #chrono{font-size: 13px;}
 
-#niveau{font-size: 30px;}
-#point{top: 70px;}
-#touche{top: 100px;}
+#niveau{font-size: 35px; top: -10px; right: 0px;}
+#point{top: 90px; right: 0px;}
+#touche{top: 0px;}
 #touche_suivante{top: 90px;}
-#chrono{top: 150px;}
+#chrono{top: 300px;}
 
 
 #commentaire{
@@ -253,7 +257,18 @@ div {
 #fleche{
     width: 100px;
     height: 100px;
-    transform: scale(0.3);
+    top:0px;
+    left: -35px;
+    transform: scale(0.5);
+    opacity: 0.5;
+}
+
+#fleche_suivante{
+    width: 100px;
+    height: 100px;
+    top:90px;
+    left: -35px;
+    transform: scale(0.5);
 }
 
 .haut{background-image: url('../img/fleche/haut.png') !important;}
