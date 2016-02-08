@@ -38,6 +38,8 @@ var affiche_touche_suivante = document.getElementById('touche_suivante');
 var affiche_fleche_suivante = document.getElementById('fleche_suivante');
 var affiche_commentaire = document.getElementById('commentaire');
 var affiche_chrono = document.getElementById('chrono');
+var affiche_vie = document.getElementById('vie');
+
 
 var isPlaying = false;
 var first_game = [37, 38, 39, 40, 39, 38, 37];
@@ -340,7 +342,20 @@ function jouer_le_step(pas, niveau){
             // console.log('ici');
             IlSEstTrompe();
         }
-		
+
+		// Affichage des vies
+		if (vie == 3){
+			affiche_vie.className = "vie3";
+		}
+		else if (vie == 2){
+			affiche_vie.className = "vie2";
+		}
+		else if (vie == 1){
+			affiche_vie.className = "vie1";
+		} else {
+			affiche_vie.className = "vie0";	
+		}
+
 		// Tant qu'il y a des vies on avance dans le jeu
 		if (vie >= 0) {
 			
@@ -374,6 +389,8 @@ function fin_jeu(){
 	affiche_niveau.innerHTML = "";
 	elt_fleche.className = "";
 	elt_fleche_suivante.className = "";
+	affiche_vie.className = "";
+
 }
 
 

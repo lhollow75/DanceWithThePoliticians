@@ -275,6 +275,20 @@ div {
 .droite{background-image: url('../img/fleche/droite.png') !important;}
 .bas{background-image: url('../img/fleche/bas.png') !important;}
 .gauche{background-image: url('../img/fleche/gauche.png') !important;}
+.defaut{background-image: url('../img/fleche/defaut.png') !important;}
+
+
+#vie{
+    width: 100px;
+    height: 15px;
+    top: -30px;
+    left: -15px;
+    transform: scale(0.7);
+}
+
+.vie1{background-image: url('../img/vie/vie1.png') ! important; background-repeat: no-repeat;}
+.vie2{background-image: url('../img/vie/vie2.png') ! important; background-repeat: no-repeat;}
+.vie3{background-image: url('../img/vie/vie3.png') ! important; background-repeat: no-repeat;}
 
 
 
