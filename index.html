@@ -5,6 +5,7 @@
         <title>Dancing With The Politicians</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/style_menu.css" />
+        <link rel="stylesheet" type="text/css" href="css/style_player.css" />
 
 
         <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
@@ -104,6 +105,21 @@
                         <div id="jambe_gauche" class="jambe jambe_gauche"></div>
                 </div>
 
+			<div id="wrapperPlayer">
+		        <audio id="audio" preload="auto" autoplay tabindex="0" controls="" type="audio/mpeg">
+		            <source type="audio/mp3" src="mp3/01.mp3">
+		            Sorry, your browser does not support HTML5 audio.
+		        </audio>
+		        
+		        <ul id="playlist">
+		            <li class="active"><a href="mp3/01.mp3">Unknown 1</a></li>
+		            <li><a href="mp3/02.mp3">Unknown 2</a></li>
+		            <li><a href="mp3/Caramelldansen.mp3">Caramell Dansen</a></li>
+		            <li><a href="mp3/Llevan_Polka.mp3">Llevan Polka</a></li>
+
+		        </ul>
+		    </div>
+
 
         </div>
 
@@ -111,9 +127,10 @@
 
 
 
-    
+    	
         <script type="text/javascript" src="js/javascript.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/player.js"></script>
 
     </body>
 </html>
