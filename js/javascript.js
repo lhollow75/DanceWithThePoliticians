@@ -250,7 +250,7 @@ function play(ev){
 		commentaire("Bravo");
         console.log('bravo');
 		point++;
-		affiche_point.innerHTML = point;
+		affiche_point.innerHTML = "Score : "+point;
     } else { // Sinon il perd une vie
         // console.log('là');
         IlSEstTrompe();
