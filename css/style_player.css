@@ -1,7 +1,6 @@
 #playlist, audio{
-	background:#666;
-	width:400px;
-	padding:20px;
+	width:250px;
+	padding:0px;
 	list-style: none;
 }
 

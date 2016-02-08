@@ -13,17 +13,17 @@ body{
 
 }
 
+div {
+    position:absolute;
+    -webkit-transform-style:preserve-3d;
+}
+
 #intro{
     padding:0;
     margin: -30px auto;
     width: 100%;
 }
 
-
-div {
-	position:absolute;
-	-webkit-transform-style:preserve-3d;
-}
 
 #game{
     position:relative;
@@ -40,16 +40,6 @@ div {
 	left:90px;
 	top: -20px;
 }
-
-#page {
-	height:50%;
-	width:50%;
-	line-height: 80px;
-
-	-moz-perspective:700px;
-	background-image: -moz-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
-}
-
 
 
 #tete{
@@ -90,15 +80,12 @@ div {
 	left:144px;
 	border-radius: 50px;
 	z-index: -10;
-
 }
 
 
 
-
-
-
 /* ========= Mouvements ========= */
+
 
 .bras{
     width: 5px;
@@ -201,8 +188,6 @@ div {
     transition: all 300ms linear;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
 }
 
 
@@ -219,8 +204,6 @@ div {
     transition: all 300ms linear;
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
     transform-origin:50% 0%;
     top:272px !important;
     left:147px !important;
@@ -232,7 +215,7 @@ div {
 .jambe_droite {transform:rotate(-25deg);}
 
 
-
+/* Interface de jeu */
 #niveau, #point, #touche, #touche_suivante, #chrono, #commentaire, #vie{
     color: #fff;
     font-family: 'Terminal Dosis', Arial, sans-serif;
@@ -247,13 +230,11 @@ div {
 #touche_suivante{top: 90px;}
 #chrono{top: 300px;}
 
-
 #commentaire{
 	top: 200px;
     background-color: rgba(0,0,0,0.5);
     font-size: 20px;
 }
-
 
 #fleche_suivante{
     width: 100px;
@@ -278,7 +259,6 @@ div {
 .gauche{background-image: url('../img/fleche/gauche.png') !important;}
 .defaut{background-image: url('../img/fleche/defaut.png') !important;}
 
-
 #vie{
     width: 100px;
     height: 15px;
@@ -291,9 +271,38 @@ div {
 .vie3{background-image: url('../img/vie/vie3.png') ! important; background-repeat: no-repeat; background-position: right top;}
 
 
+/* Player audio */
 
+#wrapperPlayer{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top:225px;
+    right: -100px;
+}
 
+#playlist, audio{
+    width:250px;
+    padding:0px;
+    list-style: none;
+}
 
+#playlist .active a{
+    color:#5DB0E6;
+    text-decoration:none;
+}
+
+#playlist li a{
+    color:#eeeedd;
+    background: rgba(10,10,10,0.8);
+    padding:5px;
+    display:block;
+    text-decoration:none;
+}
+
+#playlist li a:hover{
+    text-decoration:none;
+}
 
 
 
