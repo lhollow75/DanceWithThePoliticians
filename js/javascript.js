@@ -292,7 +292,7 @@ function jouer_le_step(pas, niveau){
 	// console.log(niveauEnCours);
     touche_attendue = niveauEnCours[pas];
 	
-
+    affiche_vie.innerHTML = "Vie(s) : ";
 	affiche_touche.innerHTML = "Appuies sur la touche : ";
 	
 	
@@ -343,6 +343,7 @@ function jouer_le_step(pas, niveau){
             IlSEstTrompe();
         }
 
+
 		// Affichage des vies
 		if (vie == 3){
 			affiche_vie.className = "vie3";
@@ -390,7 +391,7 @@ function fin_jeu(){
 	elt_fleche.className = "";
 	elt_fleche_suivante.className = "";
 	affiche_vie.className = "";
-
+	affiche_vie.innerHTML = "";
 }
 
 

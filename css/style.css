@@ -233,15 +233,16 @@ div {
 
 
 
-#niveau, #point, #touche, #touche_suivante, #chrono, #commentaire{
+#niveau, #point, #touche, #touche_suivante, #chrono, #commentaire, #vie{
     color: #fff;
     font-family: 'Terminal Dosis', Arial, sans-serif;
 }
 
-#point, #touche, #touche_suivante, #chrono{font-size: 13px;}
+#touche, #touche_suivante, #chrono{font-size: 13px;}
 
 #niveau{font-size: 35px; top: -10px; right: 0px;}
-#point{top: 90px; right: 0px;}
+#point{top: 90px; right: 0px; font-size: 15px;}
+#vie{top: 120px; right: 0px; font-size: 15px;}
 #touche{top: 0px;}
 #touche_suivante{top: 90px;}
 #chrono{top: 300px;}
@@ -281,14 +282,13 @@ div {
 #vie{
     width: 100px;
     height: 15px;
-    top: -30px;
-    left: -15px;
-    transform: scale(0.7);
+    top: 60px;
+    right: 0px;
 }
 
-.vie1{background-image: url('../img/vie/vie1.png') ! important; background-repeat: no-repeat;}
-.vie2{background-image: url('../img/vie/vie2.png') ! important; background-repeat: no-repeat;}
-.vie3{background-image: url('../img/vie/vie3.png') ! important; background-repeat: no-repeat;}
+.vie1{background-image: url('../img/vie/vie1.png') ! important; background-repeat: no-repeat; background-position: right top;}
+.vie2{background-image: url('../img/vie/vie2.png') ! important; background-repeat: no-repeat; background-position: right top;}
+.vie3{background-image: url('../img/vie/vie3.png') ! important; background-repeat: no-repeat; background-position: right top;}
 
 
 
