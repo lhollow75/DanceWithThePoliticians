@@ -7,6 +7,10 @@ var b = document.getElementsByTagName('body')[0];
 var change_perso = document.getElementsByClassName('change')[0];
 var elt_fleche = document.getElementById('fleche');
 var elt_fleche_suivante = document.getElementById('fleche_suivante');
+var elt_retour = document.getElementById('retour');
+var elt_rejouer = document.getElementById('rejouer');
+var elt_game = document.getElementById('game');
+var elt_intro = document.getElementById('intro');
 
 // Choix du perso
 var elt_obama = document.getElementById('character_nice_1');
@@ -59,7 +63,9 @@ function mouvement_tete(){
 	}, 400);
 }
 
-document.getElementById('game').style.display = 'none';
+elt_game.style.display = 'none';
+retour.style.display = 'none';
+rejouer.style.display = 'none';
 
 b.addEventListener('keyup',  function(e){
     if (isPlaying){
@@ -85,15 +91,28 @@ elt_poutine.addEventListener('click', function(){
 	changement_tete('tetePoutine');
 });
 change_perso.addEventListener('click', function(){
-	document.getElementById('game').style.display = 'none';
-	document.getElementById('intro').style.display = 'block';
+	game.style.display = 'none';
+	intro.style.display = 'block';
 	clearInterval(move_tete);
+});
+retour.addEventListener('click', function(){
+	retour.style.display = "none";
+	rejouer.style.display = "none";
+	change_perso.style.display = 'block';
+	fin_jeu();
+	isPlaying = false;
+});
+rejouer.addEventListener('click', function(){
+	retour.style.display = "none";
+	rejouer.style.display = "none";
+	reset_game();
+	jouer_le_step(0, 0);
 });
 
 function changement_tete(nouvelle_tete){
 	elt_tete.className = "tete_move1 "+ nouvelle_tete;
-	document.getElementById('game').style.display = 'block';
-	document.getElementById('intro').style.display = 'none';
+	game.style.display = 'block';
+	intro.style.display = 'none';
 	mouvement_tete();
 }
 
@@ -195,6 +214,7 @@ function reset_game(){
 	point = 0;
 	vie = 3;
 	frequence = 3000;
+	affiche_point.innerHTML = point;
 }
 
 // Calcule d'un angle aléatoire entre -360 et 360, en multiple de 45
@@ -261,8 +281,8 @@ function play(ev){
 }
 
 function change_fleche(sens, fleche){
-	console.log("sens: "+sens);
-	console.log("fleche: "+fleche);
+	// console.log("sens: "+sens);
+	// console.log("fleche: "+fleche);
 	switch (sens){
 		case 37:
 			touche = "gauche";
@@ -284,6 +304,8 @@ function change_fleche(sens, fleche){
 }
 
 function jouer_le_step(pas, niveau){
+	
+	change_perso.style.display = 'none';
 	// console.log("tab:"+enchainement);
     niveauEnCours = enchainement[niveau];
 	affiche_niveau.innerHTML = "Niveau: "+(niveau + 1);
@@ -351,29 +373,41 @@ function jouer_le_step(pas, niveau){
 				frequence = frequence - 1000;
 				jouer_le_step(0, niveau+1)
 			} else { // Sinon c'est la fin du jeu !
-				console.log("Fin du jeu !");
+				// console.log("Fin du jeu !");
 				commentaire("Félicitation");
+				// setTimeout(fin_jeu, 5000);
+				affiche_possibilites();
 			}
 		} else { // Si il n'y a plus de vie c'es la fin du jeu
 			// console.log("Game Over");
 			commentaire("Game Over");
 			
+			affiche_possibilites();
+
 			// Suppression de tous les affichages du mode jeu au bout de 5sec après la fin du jeu
-			setTimeout(fin_jeu, 5000);
+			// setTimeout(fin_jeu, 5000);
 		}  
     }, frequence);
 }
 
 // Fin du jeu: Suppression de tous les affichages du mode jeu
 function fin_jeu(){
-	affiche_commentaire.innerHTML = "";
-	affiche_chrono.innerHTML = "";
-	affiche_touche_suivante.innerHTML = "";
-	affiche_touche.innerHTML = "";
-	affiche_point.innerHTML = "";
-	affiche_niveau.innerHTML = "";
-	elt_fleche.className = "";
-	elt_fleche_suivante.className = "";
+	// console.log("fin du jeu affichage");
+	affiche_chrono.style.display = 'none';
+	affiche_commentaire.style.display = 'none';
+	affiche_touche.style.display = 'none';
+	affiche_touche_suivante.style.display = 'none';
+	affiche_point.style.display = 'none';
+	affiche_niveau.style.display = 'none';
+	elt_fleche.style.display = 'none';
+	elt_fleche_suivante.style.display = 'none';
+}
+
+
+
+function affiche_possibilites(){
+	retour.style.display = 'block';
+	rejouer.style.display = 'block';
 }
 
 
