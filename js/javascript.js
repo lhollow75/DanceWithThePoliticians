@@ -5,6 +5,8 @@ var jambe_g = document.getElementById('jambe_gauche');
 var elt_tete = document.getElementById('tete');
 var b = document.getElementsByTagName('body')[0];
 var change_perso = document.getElementsByClassName('change')[0];
+var elt_fleche = document.getElementById('fleche');
+var elt_fleche_suivante = document.getElementById('fleche_suivante');
 
 // Choix du perso
 var elt_obama = document.getElementById('character_nice_1');
@@ -42,7 +44,7 @@ var first_game = [37, 38, 39, 40, 39, 38, 37];
 var second_game = [37,38,39,40];
 var touche_attendue;
 var prochaine_touche;
-var frequence = 5000;
+var frequence = 3000;
 var touche_appuye;
 var enchainement = [first_game, second_game];
 var point = 0;
@@ -192,7 +194,7 @@ function fleches(ev){
 function reset_game(){
 	point = 0;
 	vie = 3;
-	frequence = 5000;
+	frequence = 3000;
 }
 
 // Calcule d'un angle aléatoire entre -360 et 360, en multiple de 45
@@ -258,26 +260,39 @@ function play(ev){
 
 }
 
-function change_fleche(sens){
-	switch(sens){
+function change_fleche(sens, fleche){
+	console.log("sens: "+sens);
+	console.log("fleche: "+fleche);
+	switch (sens){
 		case 37:
-		break;
+			touche = "gauche";
+			break;
 		case 38:
-		break;
+			touche = "haut";
+			break;
 		case 39:
-		break;
-		case  40:
-		break;
+			touche = "droite";
+			break;
+		case 40:
+			touche = "bas";
+			break;
+		default:
+			touche = "defaut";
+			break;
 	}
+	fleche.className = touche;
 }
 
 function jouer_le_step(pas, niveau){
 	// console.log("tab:"+enchainement);
     niveauEnCours = enchainement[niveau];
-	affiche_niveau.innerHTML = "Niveau: "+niveau + 1;
+	affiche_niveau.innerHTML = "Niveau: "+(niveau + 1);
 	// console.log(niveauEnCours);
     touche_attendue = niveauEnCours[pas];
-	affiche_touche.innerHTML = "Appuies sur la touche : "+touche_attendue;
+	
+
+	affiche_touche.innerHTML = "Appuies sur la touche : ";
+	
 	
 	// Affichage de la touche suivante
 	if (pas + 1 < niveauEnCours.length) {
@@ -288,20 +303,21 @@ function jouer_le_step(pas, niveau){
 	} else {
 		prochaine_touche = "";
 	}
-	
+	console.log("debug: "+prochaine_touche);
 	if (prochaine_touche == "") {
 		affiche_touche_suivante.innerHTML = "";
 	} else {
-		affiche_touche_suivante.innerHTML = "Prochaine touche: "+prochaine_touche;
+		affiche_touche_suivante.innerHTML = "Prochaine touche: ";
 	}
 	
-	change_fleche(touche_attendue);
+	change_fleche(touche_attendue, elt_fleche);
+	change_fleche(prochaine_touche, elt_fleche_suivante);
 	
 	
     touche_appuye = false;
 
-    console.log('Attendu', touche_attendue);
-    console.log('Niveau', niveau + 1);
+    // console.log('Attendu', touche_attendue);
+    // console.log('Niveau', niveau + 1);
 	
 	// Conversion de la fréquence ms->s pour l'affichage
 	var compteur = frequence/1000;
@@ -339,7 +355,7 @@ function jouer_le_step(pas, niveau){
 				commentaire("Félicitation");
 			}
 		} else { // Si il n'y a plus de vie c'es la fin du jeu
-			console.log("Game Over");
+			// console.log("Game Over");
 			commentaire("Game Over");
 			
 			// Suppression de tous les affichages du mode jeu au bout de 5sec après la fin du jeu
@@ -356,10 +372,14 @@ function fin_jeu(){
 	affiche_touche.innerHTML = "";
 	affiche_point.innerHTML = "";
 	affiche_niveau.innerHTML = "";
+	elt_fleche.className = "";
+	elt_fleche_suivante.className = "";
 }
 
+
+// Affiche le commentaire pendant le jeu, pendant 1sec
 function commentaire(com){
-	console.log("commentaire: "+com);
+	// console.log("commentaire: "+com);
 	affiche_commentaire.innerHTML = com;
 	setTimeout(function(){
 		affiche_commentaire.innerHTML = "";
@@ -369,7 +389,7 @@ function commentaire(com){
 
 // Le mouvement n'a pas été effectué (pas de touche ou mauvaise touche appuyée)
 function IlSEstTrompe(){
-    console.log('Erreur de mouvement');
+    // console.log('Erreur de mouvement');
 	vie --;
 	commentaire("Erreur");
 }

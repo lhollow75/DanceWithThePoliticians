@@ -254,19 +254,19 @@ div {
 }
 
 
-#fleche{
+#fleche_suivante{
     width: 100px;
     height: 100px;
-    top:0px;
+    top:90px;
     left: -35px;
     transform: scale(0.5);
     opacity: 0.5;
 }
 
-#fleche_suivante{
+#fleche{
     width: 100px;
     height: 100px;
-    top:90px;
+    top:0px;
     left: -35px;
     transform: scale(0.5);
 }
