@@ -5,10 +5,6 @@ var jambe_g = document.getElementById('jambe_gauche');
 var elt_tete = document.getElementById('tete');
 var b = document.getElementsByTagName('body')[0];
 var change_perso = document.getElementsByClassName('change')[0];
-var elt_fleche = document.getElementById('fleche');
-var elt_fleche_suivante = document.getElementById('fleche_suivante');
-var elt_retour = document.getElementById('retour');
-var elt_rejouer = document.getElementById('rejouer');
 var elt_game = document.getElementById('game');
 var elt_intro = document.getElementById('intro');
 
@@ -43,16 +39,21 @@ var affiche_fleche_suivante = document.getElementById('fleche_suivante');
 var affiche_commentaire = document.getElementById('commentaire');
 var affiche_chrono = document.getElementById('chrono');
 var affiche_vie = document.getElementById('vie');
+var elt_fleche = document.getElementById('fleche');
+var elt_fleche_suivante = document.getElementById('fleche_suivante');
+var elt_retour = document.getElementById('retour');
+var elt_rejouer = document.getElementById('rejouer');
 
 
 var isPlaying = false;
 var first_game = [37, 38, 39, 40, 39, 38, 37];
-var second_game = [37,38,39,40];
+var second_game = [37,38,39,40, 37, 39, 39, 40, 38, 37];
+var third_game = [37, 39, 40, 39, 37, 38, 40, 37, 38, 37, 40, 37, 39, 40, 40]
 var touche_attendue;
 var prochaine_touche;
 var frequence = 3000;
 var touche_appuye;
-var enchainement = [first_game, second_game];
+var enchainement = [first_game, second_game, third_game];
 var point = 0;
 var vie = 3;
 
@@ -68,6 +69,7 @@ function mouvement_tete(){
 elt_game.style.display = 'none';
 retour.style.display = 'none';
 rejouer.style.display = 'none';
+affiche_vie.style.display = 'none';
 
 b.addEventListener('keyup',  function(e){
     if (isPlaying){
@@ -217,6 +219,7 @@ function reset_game(){
 	vie = 3;
 	frequence = 3000;
 	affiche_point.innerHTML = point;
+	affiche_vie.className = "vie3";
 }
 
 // Calcule d'un angle aléatoire entre -360 et 360, en multiple de 45
@@ -272,7 +275,7 @@ function play(ev){
 	// Comparaison de la touche appuyée avec la touche attendue
     if (ev.keyCode === touche_attendue){ // Si c'est ok, il gagne un point
 		commentaire("Bravo");
-        console.log('bravo');
+        // console.log('bravo');
 		point++;
 		affiche_point.innerHTML = "Score : "+point;
     } else { // Sinon il perd une vie
@@ -307,7 +310,14 @@ function change_fleche(sens, fleche){
 
 function jouer_le_step(pas, niveau){
 	
+	// console.log("vie: "+vie);
+	// Affichage des vies
+	if (vie > 0){
+		affiche_vie.className = "vie"+vie;
+	}
+	
 	change_perso.style.display = 'none';
+	affiche_vie.style.display = 'block';
 	// console.log("tab:"+enchainement);
     niveauEnCours = enchainement[niveau];
 	affiche_niveau.innerHTML = "Niveau: "+(niveau + 1);
@@ -327,7 +337,7 @@ function jouer_le_step(pas, niveau){
 	} else {
 		prochaine_touche = "";
 	}
-	console.log("debug: "+prochaine_touche);
+	// console.log("debug: "+prochaine_touche);
 	if (prochaine_touche == "") {
 		affiche_touche_suivante.innerHTML = "";
 	} else {
@@ -365,18 +375,7 @@ function jouer_le_step(pas, niveau){
             IlSEstTrompe();
         }
 
-		// Affichage des vies
-		if (vie == 3){
-			affiche_vie.className = "vie3";
-		}
-		else if (vie == 2){
-			affiche_vie.className = "vie2";
-		}
-		else if (vie == 1){
-			affiche_vie.className = "vie1";
-		} else {
-			affiche_vie.className = "vie0";	
-		}
+		
 
 		// Tant qu'il y a des vies on avance dans le jeu
 		if (vie >= 0) {
