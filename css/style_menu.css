@@ -103,35 +103,6 @@
 
 
 
-.choose, .change{
-    font-family: 'Montserrat', sans-serif;
-    color:  #FFFFFF;
-    font-size: 22px;
-    text-shadow:0 0 2px #FFFFFF;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    -webkit-animation-name: clignote;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-iteration-count:infinite;
-}
-@-webkit-keyframes clignote {
-    0%, 100%{
-        text-shadow:0px 0px 10px #FFFFFF;
-        -webkit-animation-timing-function: ease-out;
-    }
-    50%{
-        text-shadow:0px 0px 0px #FFFFFF;
-        -webkit-animation-timing-function: ease-in;
-    }
-}
-
-.change a{
-    text-decoration: none;
-    color: #FFF;
-    position: relative;
-    top:-86px;
-}
 
 .ca-menu{
     padding:0;
@@ -155,8 +126,6 @@
     opacity: 1;
   }
 }
-
-
 
 .ca-menu li{
     width: 200px;

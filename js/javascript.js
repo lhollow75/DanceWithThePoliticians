@@ -43,7 +43,7 @@ var elt_fleche = document.getElementById('fleche');
 var elt_fleche_suivante = document.getElementById('fleche_suivante');
 var elt_retour = document.getElementById('retour');
 var elt_rejouer = document.getElementById('rejouer');
-
+var elt_consignes = document.getElementById('consignes');
 
 var isPlaying = false;
 var first_game = [37, 38, 39, 40, 39, 38, 37];
@@ -68,6 +68,7 @@ function mouvement_tete(){
 
 elt_game.style.display = 'none';
 retour.style.display = 'none';
+elt_consignes.style.display = 'block';
 rejouer.style.display = 'none';
 affiche_vie.style.display = 'none';
 
@@ -323,6 +324,8 @@ function jouer_le_step(pas, niveau){
 	}
 	
 	affiche_vie.innerHTML = affichevie;
+	elt_consignes.style.display = 'none';
+
 	
 	change_perso.style.display = 'none';
 	affiche_vie.style.display = 'block';
@@ -422,6 +425,8 @@ function fin_jeu(){
 	affiche_niveau.style.display = 'none';
 	elt_fleche.style.display = 'none';
 	elt_fleche_suivante.style.display = 'none';
+	elt_consignes.style.display = 'none';
+
 }
 
 

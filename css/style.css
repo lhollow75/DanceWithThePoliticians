@@ -305,5 +305,73 @@ div {
 }
 
 
+.choose{
+    font-family: 'Montserrat', sans-serif;
+    color:  #FFFFFF;
+    font-size: 22px;
+    text-shadow:0 0 2px #FFFFFF;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    -webkit-animation-name: clignote;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes clignote {
+    0%, 100%{
+        text-shadow:0px 0px 10px #FFFFFF;
+        -webkit-animation-timing-function: ease-out;
+    }
+    50%{
+        text-shadow:0px 0px 0px #FFFFFF;
+        -webkit-animation-timing-function: ease-in;
+    }
+}
+
+.change{
+    font-family: 'Montserrat', sans-serif;
+    color:  #FFFFFF;
+    font-size: 18px;
+    text-shadow:0 0 2px #FFFFFF;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    -webkit-animation-name: clignote;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count:infinite;
+}
+
+.choice{
+    font-family: 'Montserrat', sans-serif;
+    color:  #FFFFFF;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.change a, .choice a{
+    text-decoration: none;
+    color: #FFF;
+    position: relative;
+    top:-86px;
+}
+
+.choice a:hover{
+    text-shadow:0 0 10px #FFFFFF;
+
+    /* Transition */
+    transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+}
 
 
+
+#consignes{
+    font-family: 'Montserrat', sans-serif;
+    color:  #FFFFFF;
+    font-size: 12px;
+    width: 150px;
+    top:-60px;
+}
