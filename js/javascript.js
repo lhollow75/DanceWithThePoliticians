@@ -4,6 +4,7 @@ var jambe_d = document.getElementById('jambe_droite');
 var jambe_g = document.getElementById('jambe_gauche');
 var elt_tete = document.getElementById('tete');
 var b = document.getElementsByTagName('body')[0];
+var change_perso = document.getElementsByClassName('change')[0];
 
 // Choix du perso
 var elt_obama = document.getElementById('character_nice_1');
@@ -30,7 +31,9 @@ var m=1;
 var affiche_niveau = document.getElementById('niveau');
 var affiche_point = document.getElementById('point');
 var affiche_touche = document.getElementById('touche');
+var affiche_fleche = document.getElementById('fleche');
 var affiche_touche_suivante = document.getElementById('touche_suivante');
+var affiche_fleche_suivante = document.getElementById('fleche_suivante');
 var affiche_commentaire = document.getElementById('commentaire');
 var affiche_chrono = document.getElementById('chrono');
 
@@ -78,6 +81,11 @@ elt_cameron.addEventListener('click', function(){
 });
 elt_poutine.addEventListener('click', function(){
 	changement_tete('tetePoutine');
+});
+change_perso.addEventListener('click', function(){
+	document.getElementById('game').style.display = 'none';
+	document.getElementById('intro').style.display = 'block';
+	clearInterval(move_tete);
 });
 
 function changement_tete(nouvelle_tete){
@@ -250,6 +258,19 @@ function play(ev){
 
 }
 
+function change_fleche(sens){
+	switch(sens){
+		case 37:
+		break;
+		case 38:
+		break;
+		case 39:
+		break;
+		case  40:
+		break;
+	}
+}
+
 function jouer_le_step(pas, niveau){
 	// console.log("tab:"+enchainement);
     niveauEnCours = enchainement[niveau];
@@ -273,6 +294,8 @@ function jouer_le_step(pas, niveau){
 	} else {
 		affiche_touche_suivante.innerHTML = "Prochaine touche: "+prochaine_touche;
 	}
+	
+	change_fleche(touche_attendue);
 	
 	
     touche_appuye = false;
