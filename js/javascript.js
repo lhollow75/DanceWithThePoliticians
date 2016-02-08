@@ -312,9 +312,17 @@ function jouer_le_step(pas, niveau){
 	
 	// console.log("vie: "+vie);
 	// Affichage des vies
-	if (vie > 0){
+	if (vie >0) {
+		if (vie > 1){
+			affichevie = "Vies : ";
+			
+		} else if (vie == 1) {
+			affichevie = "Vie : ";
+		}
 		affiche_vie.className = "vie"+vie;
 	}
+	
+	affiche_vie.innerHTML = affichevie;
 	
 	change_perso.style.display = 'none';
 	affiche_vie.style.display = 'block';
@@ -324,7 +332,7 @@ function jouer_le_step(pas, niveau){
 	// console.log(niveauEnCours);
     touche_attendue = niveauEnCours[pas];
 	
-    affiche_vie.innerHTML = "Vie(s) : ";
+    
 	affiche_touche.innerHTML = "Appuies sur la touche : ";
 	
 	
