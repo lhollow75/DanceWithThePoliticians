@@ -324,7 +324,7 @@ function jouer_le_step(pas, niveau){
 	// console.log(niveauEnCours);
     touche_attendue = niveauEnCours[pas];
 	
-
+    affiche_vie.innerHTML = "Vie(s) : ";
 	affiche_touche.innerHTML = "Appuies sur la touche : ";
 	
 	
@@ -375,7 +375,6 @@ function jouer_le_step(pas, niveau){
             IlSEstTrompe();
         }
 
-		
 
 		// Tant qu'il y a des vies on avance dans le jeu
 		if (vie >= 0) {
@@ -431,7 +430,7 @@ function affiche_possibilites(){
 	elt_fleche.className = "";
 	elt_fleche_suivante.className = "";
 	affiche_vie.className = "";
-
+	affiche_vie.innerHTML = "";
 }
 
 
